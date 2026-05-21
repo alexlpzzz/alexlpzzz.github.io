@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gestión de equipos</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.19.0/dist/tabler-icons.min.css">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#f5f5f3;color:#1a1a1a;min-height:100vh}
+:root{
+  --bg:#fff;--bg2:#f5f5f3;--bg3:#eeede9;
+  --text:#1a1a1a;--text2:#6b6b6b;--text3:#a0a0a0;
+  --border:rgba(0,0,0,0.1);--border2:rgba(0,0,0,0.18);
+  --radius:8px;--radius-lg:12px;
+  --green-bg:#EAF3DE;--green-border:#97C459;--green-text:#27500A;
+  --amber-bg:#FAEEDA;--amber-border:#EF9F27;--amber-text:#633806;
+  --red-bg:#FCEBEB;--red-border:#F09595;--red-text:#791F1F;
+  --blue-bg:#E6F1FB;--blue-border:#85B7EB;--blue-text:#0C447C;
+}
+@media(prefers-color-scheme:dark){:root{--bg:#1c1c1e;--bg2:#111;--bg3:#2c2c2e;--text:#f0f0f0;--text2:#a0a0a0;--text3:#666;--border:rgba(255,255,255,0.1);--border2:rgba(255,255,255,0.2);--green-bg:#1a2e0e;--green-border:#3B6D11;--green-text:#a8d66e;--amber-bg:#2a1f08;--amber-border:#854F0B;--amber-text:#f0b864;--red-bg:#2a0f0f;--red-border:#791F1F;--red-text:#f09595;--blue-bg:#0a1e35;--blue-border:#185FA5;--blue-text:#85b7eb;}}
+.wrap{max-width:520px;margin:0 auto;padding:1rem 1rem 3rem}
+.app-header{text-align:center;padding:1.5rem 0 1.25rem}
+.app-header h1{font-size:20px;font-weight:500;color:var(--text)}
+.app-header p{font-size:13px;color:var(--text2);margin-top:4px}
+.sync-bar{display:flex;align-items:center;justify-content:center;gap:6px;font-size:12px;color:var(--text3);margin-bottom:1rem}
+.sync-dot{width:7px;height:7px;border-radius:50%;background:var(--text3)}
+.sync-dot.ok{background:#639922}.sync-dot.err{background:#E24B4A}.sync-dot.loading{background:#EF9F27;animation:pulse 1s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+.team-toggle{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:1.25rem}
+.team-btn{padding:12px 10px;border-radius:var(--radius-lg);border:1px solid var(--border);background:var(--bg3);cursor:pointer;display:flex;align-items:center;gap:10px}
+.team-btn-icon{width:36px;height:36px;border-radius:var(--radius);background:var(--bg2);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;color:var(--text2)}
+.team-btn .tb-name{font-size:14px;font-weight:500;color:var(--text)}
+.team-btn .tb-sub{font-size:11px;color:var(--text3);margin-top:1px}
+.team-btn.active-alev{background:var(--blue-bg);border-color:var(--blue-border)}
+.team-btn.active-alev .team-btn-icon{background:var(--blue-bg);border-color:var(--blue-border);color:var(--blue-text)}
+.team-btn.active-alev .tb-name{color:var(--blue-text)}
+.team-btn.active-benj{background:var(--green-bg);border-color:var(--green-border)}
+.team-btn.active-benj .team-btn-icon{background:var(--green-bg);border-color:var(--green-border);color:var(--green-text)}
+.team-btn.active-benj .tb-name{color:var(--green-text)}
+.nav{display:flex;gap:4px;margin-bottom:1.5rem;overflow-x:auto;padding-bottom:4px;-webkit-overflow-scrolling:touch}
+.nav button{font-size:12px;padding:7px 13px;border-radius:var(--radius);border:1px solid var(--border);background:transparent;color:var(--text2);cursor:pointer;white-space:nowrap;flex-shrink:0;display:flex;align-items:center;gap:5px}
+.nav button.active{background:var(--text);color:var(--bg);border-color:var(--text)}
+.section{display:none}.section.active{display:block}
+.card{background:var(--bg);border:1px solid var(--border);border-radius:var(--radius-lg);padding:1.1rem 1.25rem;margin-bottom:1rem}
+.card-title{font-size:14px;font-weight:500;color:var(--text);margin-bottom:1rem;display:flex;align-items:center;gap:8px}
+.card-title i{font-size:17px;color:var(--text2)}
+label{font-size:13px;color:var(--text2);display:block;margin-bottom:4px;margin-top:12px}
+label:first-child{margin-top:0}
+input,select,textarea{width:100%;font-size:14px;padding:9px 11px;border-radius:var(--radius);border:1px solid var(--border);background:var(--bg3);color:var(--text);font-family:inherit;-webkit-appearance:none}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--blue-border);outline-offset:-1px;background:var(--bg)}
+textarea{resize:vertical;min-height:60px}
+.btn{display:inline-flex;align-items:center;gap:6px;font-size:13px;padding:9px 16px;border-radius:var(--radius);border:1px solid var(--border2);background:var(--bg3);color:var(--text);cursor:pointer;font-weight:500}
+.btn-primary{background:var(--text);color:var(--bg);border-color:var(--text)}
+.btn-danger{background:var(--red-bg);color:var(--red-text);border-color:var(--red-border)}
+.btn-sm{padding:5px 10px;font-size:12px}
+.btn-block{width:100%;justify-content:center;padding:11px}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.form-actions{display:flex;gap:8px;margin-top:1rem}
+.empty{text-align:center;padding:2.5rem 1rem;color:var(--text3);font-size:13px}
+.empty i{font-size:28px;display:block;margin-bottom:8px;opacity:.4}
+.team-ind{display:inline-flex;align-items:center;font-size:12px;padding:3px 10px;border-radius:20px;font-weight:500;margin-left:auto}
+.ind-alev{background:var(--blue-bg);color:var(--blue-text)}
+.ind-benj{background:var(--green-bg);color:var(--green-text)}
+.player-item{display:flex;align-items:center;gap:12px;padding:.65rem 0;border-bottom:1px solid var(--border)}
+.player-item:last-child{border-bottom:none}
+.player-avatar{width:36px;height:36px;border-radius:50%;background:var(--bg3);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:500;color:var(--text2);flex-shrink:0;text-align:center;line-height:1.2}
+.player-info{flex:1;min-width:0}
+.player-name{font-size:14px;font-weight:500;color:var(--text)}
+.player-meta{font-size:12px;color:var(--text3);margin-top:3px;display:flex;flex-wrap:wrap;gap:4px}
+.tag{display:inline-block;font-size:11px;padding:2px 8px;border-radius:20px;background:var(--bg3);color:var(--text2);border:1px solid var(--border)}
+.tag-pie-d{background:var(--amber-bg);color:var(--amber-text);border-color:var(--amber-border)}
+.tag-pie-i{background:var(--blue-bg);color:var(--blue-text);border-color:var(--blue-border)}
+.tag-pie-a{background:#eeedfe;color:#3c3489;border-color:#afa9ec}
+.dot{width:8px;height:8px;border-radius:50%;display:inline-block;flex-shrink:0}
+.dot-p{background:#639922}.dot-a{background:#E24B4A}.dot-j{background:#BA7517}
+.attend-grid{display:flex;gap:6px;margin-top:6px}
+.aday{font-size:12px;padding:6px 11px;border-radius:var(--radius);border:1px solid var(--border);cursor:pointer;font-weight:500;background:var(--bg3);color:var(--text2)}
+.aday.p{background:var(--green-bg);color:var(--green-text);border-color:var(--green-border)}
+.aday.a{background:var(--red-bg);color:var(--red-text);border-color:var(--red-border)}
+.aday.j{background:var(--amber-bg);color:var(--amber-text);border-color:var(--amber-border)}
+.stat-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-bottom:1rem}
+.stat-card{background:var(--bg3);border-radius:var(--radius-lg);padding:.9rem 1rem}
+.stat-num{font-size:24px;font-weight:500;color:var(--text);line-height:1}
+.stat-lbl{font-size:11px;color:var(--text3);margin-top:4px}
+.val-btn{display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:50%;border:1px solid var(--border);font-size:13px;font-weight:500;cursor:pointer;background:var(--bg3);color:var(--text2)}
+.val-btn.sel-1{background:#E24B4A;color:#fff;border-color:#E24B4A}
+.val-btn.sel-2{background:#EF9F27;color:#fff;border-color:#EF9F27}
+.val-btn.sel-3{background:#BA7517;color:#fff;border-color:#BA7517}
+.val-btn.sel-4{background:#639922;color:#fff;border-color:#639922}
+.val-btn.sel-5{background:#378ADD;color:#fff;border-color:#378ADD}
+.val-row{display:flex;gap:5px}
+.playrow{display:grid;grid-template-columns:1fr 72px 46px 32px 32px 50px;gap:4px;align-items:center;padding:8px 0;border-bottom:1px solid var(--border)}
+.playrow:last-child{border-bottom:none}
+.playrow-hdr{font-size:11px;color:var(--text3);font-weight:500}
+input[type=number]{-moz-appearance:textfield}
+input[type=number]::-webkit-outer-spin-button,input[type=number]::-webkit-inner-spin-button{-webkit-appearance:none}
+.match-card{background:var(--bg);border:1px solid var(--border);border-radius:var(--radius-lg);padding:1rem 1.25rem;margin-bottom:.75rem}
+.match-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:.6rem}
+.match-rival{font-size:15px;font-weight:500;color:var(--text)}
+.match-date{font-size:12px;color:var(--text3);margin-top:2px}
+.score-pill{font-size:17px;font-weight:500;color:var(--text);background:var(--bg3);padding:4px 12px;border-radius:var(--radius);border:1px solid var(--border)}
+.badge{display:inline-block;font-size:11px;padding:2px 7px;border-radius:20px;font-weight:500}
+.badge-T{background:var(--green-bg);color:var(--green-text)}
+.badge-S{background:var(--blue-bg);color:var(--blue-text)}
+.badge-X{background:var(--bg3);color:var(--text2)}
+.tab-inner{display:flex;gap:6px;margin-bottom:1.25rem}
+.tab-inner button{font-size:12px;padding:7px 16px;border-radius:var(--radius);border:1px solid var(--border);background:transparent;color:var(--text2);cursor:pointer}
+.tab-inner button.active{background:var(--text);color:var(--bg);border-color:var(--text)}
+/* GC grid - una columna para legibilidad */
+.gc-group-title{font-size:11px;font-weight:500;color:var(--text3);text-transform:uppercase;letter-spacing:.04em;margin:.9rem 0 6px}
+.gc-item{display:flex;align-items:center;gap:10px;padding:7px 10px;border-radius:var(--radius);border:1px solid var(--border);background:var(--bg3);margin-bottom:5px}
+.gc-label{font-size:13px;color:var(--text);flex:1}
+.gc-btn{width:26px;height:26px;border-radius:50%;border:1px solid var(--border);background:var(--bg);color:var(--text2);cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center;flex-shrink:0;line-height:1}
+.gc-count{font-size:14px;font-weight:500;color:var(--text3);min-width:24px;text-align:center;flex-shrink:0}
+.gc-count.active{color:#E24B4A;font-weight:700}
+/* barras stats */
+.bar-row{display:flex;align-items:center;gap:8px;margin-bottom:8px}
+.bar-label{font-size:12px;color:var(--text2);width:150px;flex-shrink:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.bar-track{flex:1;height:7px;background:var(--bg3);border-radius:4px;overflow:hidden}
+.bar-fill{height:100%;background:#E24B4A;border-radius:4px}
+.bar-num{font-size:12px;font-weight:500;color:var(--text);min-width:18px;text-align:right}
+/* donut chart */
+.donut-wrap{display:flex;align-items:center;gap:16px;margin-bottom:1rem}
+.donut-legend{flex:1;min-width:0}
+.donut-leg-item{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--text2);margin-bottom:5px}
+.donut-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
+/* objetivos */
+.prio-btn{flex:1;justify-content:center;font-size:13px;padding:9px 6px;border-radius:var(--radius)}
+.prio-btn.sel-alta{background:var(--red-bg);border-color:var(--red-border);color:var(--red-text)}
+.prio-btn.sel-media{background:var(--amber-bg);border-color:var(--amber-border);color:var(--amber-text)}
+.prio-btn.sel-baja{background:var(--green-bg);border-color:var(--green-border);color:var(--green-text)}
+.obj-item{display:flex;align-items:flex-start;gap:10px;padding:.75rem 0;border-bottom:1px solid var(--border)}
+.obj-item:last-child{border-bottom:none}
+.obj-item.done .obj-title{text-decoration:line-through;color:var(--text3)}
+.obj-item.done{opacity:.55}
+.obj-body{flex:1;min-width:0}
+.obj-title{font-size:14px;font-weight:500;color:var(--text);margin-bottom:2px}
+.obj-note{font-size:12px;color:var(--text2);line-height:1.5}
+.obj-actions{display:flex;flex-direction:column;gap:6px;align-items:flex-end;flex-shrink:0}
+.prio-tag{font-size:11px;font-weight:500;padding:2px 9px;border-radius:20px}
+.prio-tag-Alta{background:var(--red-bg);color:var(--red-text)}
+.prio-tag-Media{background:var(--amber-bg);color:var(--amber-text)}
+.prio-tag-Baja{background:var(--green-bg);color:var(--green-text)}
+.icon-btn{width:30px;height:30px;border-radius:50%;border:1px solid var(--border);background:var(--bg3);color:var(--text2);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:14px}
+.icon-btn.done-check{background:var(--green-bg);border-color:var(--green-border);color:var(--green-text)}
+.legend{display:flex;gap:14px;margin-bottom:.75rem;flex-wrap:wrap}
+.legend-item{font-size:12px;color:var(--text2);display:flex;align-items:center;gap:5px}
+.obj-sec-hdr{font-size:11px;font-weight:500;color:var(--text3);text-transform:uppercase;letter-spacing:.05em;margin:.25rem 0 .5rem;display:flex;align-items:center;gap:6px}
+.loading-overlay{position:fixed;inset:0;background:var(--bg);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;z-index:999;font-size:14px;color:var(--text2)}
+.spinner{width:32px;height:32px;border:3px solid var(--border);border-top-color:var(--text);border-radius:50%;animation:spin .8s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+</style>
+</head>
+<body>
+<div id="loading-overlay" class="loading-overlay">
+  <div class="spinner"></div>
+  <span>Conectando con la base de datos...</span>
+</div>
+<div class="wrap" style="display:none" id="main-app">
+  <div class="app-header">
+    <h1>Gestión de equipos</h1>
+    <p>Alevín B · Benjamín</p>
+  </div>
+  <div class="sync-bar">
+    <div class="sync-dot" id="sync-dot"></div>
+    <span id="sync-txt">Conectando...</span>
+  </div>
+  <div class="team-toggle">
+    <div class="team-btn active-alev" id="tbtn-alev" onclick="switchTeam('alev')">
+      <div class="team-btn-icon"><i class="ti ti-ball-football"></i></div>
+      <div><div class="tb-name">Alevín B</div><div class="tb-sub">Fútbol 11</div></div>
+    </div>
+    <div class="team-btn" id="tbtn-benj" onclick="switchTeam('benj')">
+      <div class="team-btn-icon"><i class="ti ti-ball-football"></i></div>
+      <div><div class="tb-name">Benjamín</div><div class="tb-sub">Fútbol 7</div></div>
+    </div>
+  </div>
+  <div class="nav">
+    <button class="active" onclick="showSection('plantilla')"><i class="ti ti-users" style="font-size:14px"></i>Plantilla</button>
+    <button onclick="showSection('asistencia')"><i class="ti ti-calendar" style="font-size:14px"></i>Asistencia</button>
+    <button onclick="showSection('partidos')"><i class="ti ti-ball-football" style="font-size:14px"></i>Partidos</button>
+    <button onclick="showSection('stats')"><i class="ti ti-chart-bar" style="font-size:14px"></i>Stats</button>
+    <button onclick="showSection('objetivos')"><i class="ti ti-target" style="font-size:14px"></i>Objetivos</button>
+  </div>
+
+  <div id="sec-plantilla" class="section active">
+    <div class="card">
+      <div class="card-title"><i class="ti ti-user-plus"></i> Nuevo jugador <span class="team-ind ind-alev" id="ind-plantilla">Alevín</span></div>
+      <div class="row2">
+        <div><label>Nombre</label><input id="p-nombre" placeholder="Nombre y apellido"></div>
+        <div><label>Dorsal</label><input id="p-dorsal" type="number" placeholder="7"></div>
+      </div>
+      <div class="row2">
+        <div><label>Posición principal</label>
+          <select id="p-pos">
+            <option>Portero</option><option>Defensa Central</option><option>Lateral</option><option selected>Centrocampista</option><option>Extremo</option><option>Delantero</option>
+          </select>
+        </div>
+        <div><label>Posición alternativa</label>
+          <select id="p-pos2">
+            <option value="">— Ninguna —</option><option>Portero</option><option>Defensa Central</option><option>Lateral</option><option>Centrocampista</option><option>Extremo</option><option>Delantero</option>
+          </select>
+        </div>
+      </div>
+      <div class="row2">
+        <div><label>Pierna buena</label>
+          <select id="p-pie"><option value="Derecha">Derecha</option><option value="Izquierda">Izquierda</option><option value="Ambas">Ambas</option></select>
+        </div>
+      </div>
+      <div class="form-actions"><button class="btn btn-primary" onclick="addPlayer()"><i class="ti ti-plus" style="font-size:14px"></i> Añadir</button></div>
+    </div>
+    <div id="lista-plantilla"></div>
+  </div>
+
+  <div id="sec-asistencia" class="section">
+    <div class="card">
+      <div class="card-title"><i class="ti ti-calendar-event"></i> Semana de entrenos <span class="team-ind ind-alev" id="ind-asistencia">Alevín</span></div>
+      <label>Selecciona el lunes de la semana</label><input id="att-week" type="date">
+      <div class="form-actions" style="margin-top:.9rem"><button class="btn btn-primary" onclick="loadAttendance()"><i class="ti ti-arrow-right" style="font-size:14px"></i> Cargar semana</button></div>
+    </div>
+    <div id="att-list"></div>
+  </div>
+
+  <div id="sec-partidos" class="section">
+    <div class="tab-inner">
+      <button class="active" onclick="showPartidoTab('nuevo')">Nuevo partido</button>
+      <button onclick="showPartidoTab('historial')">Historial</button>
+    </div>
+    <div id="ptab-nuevo">
+      <div class="card">
+        <div class="card-title"><i class="ti ti-calendar-event"></i> Datos del partido <span class="team-ind ind-alev" id="ind-partido">Alevín</span></div>
+        <div class="row2">
+          <div><label>Rival</label><input id="m-rival" placeholder="CD Ejemplo"></div>
+          <div><label>Fecha</label><input id="m-fecha" type="date"></div>
+        </div>
+        <div class="row2">
+          <div><label>Goles a favor</label><input id="m-gf" type="number" placeholder="0" min="0"></div>
+          <div><label>Goles en contra</label><input id="m-gc" type="number" placeholder="0" min="0"></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-title"><i class="ti ti-shield"></i> Cómo nos marcaron</div>
+        <div id="gc-entry"></div>
+      </div>
+      <div class="card">
+        <div class="card-title"><i class="ti ti-list-details"></i> Participación jugadores</div>
+        <div class="playrow playrow-hdr"><span>Jugador</span><span>Rol</span><span>Min</span><span>G</span><span>A</span><span>Val</span></div>
+        <div id="match-players"></div>
+      </div>
+      <button class="btn btn-primary btn-block" onclick="saveMatch()"><i class="ti ti-device-floppy" style="font-size:15px"></i> Guardar partido</button>
+    </div>
+    <div id="ptab-historial" style="display:none"><div id="historial-list"></div></div>
+  </div>
+
+  <div id="sec-stats" class="section"><div id="stats-content"></div></div>
+
+  <div id="sec-objetivos" class="section">
+    <div class="card">
+      <div class="card-title"><i class="ti ti-target"></i> Nuevo objetivo <span class="team-ind ind-alev" id="ind-objetivos">Alevín</span></div>
+      <label>Objetivo</label><input id="obj-titulo" placeholder="Ej: Adaptación a posiciones en F11">
+      <label>Notas (opcional)</label><textarea id="obj-nota" placeholder="Cómo trabajarlo, contexto..."></textarea>
+      <label>Prioridad</label>
+      <div style="display:flex;gap:6px;margin-top:6px">
+        <button type="button" class="btn prio-btn sel-alta" id="pbtn-alta" onclick="selectPrio('Alta')">Alta</button>
+        <button type="button" class="btn prio-btn" id="pbtn-media" onclick="selectPrio('Media')">Media</button>
+        <button type="button" class="btn prio-btn" id="pbtn-baja" onclick="selectPrio('Baja')">Baja</button>
+      </div>
+      <div class="form-actions"><button class="btn btn-primary" onclick="addObjetivo()"><i class="ti ti-plus" style="font-size:14px"></i> Añadir</button></div>
+    </div>
+    <div id="obj-list"></div>
+  </div>
+</div>
+
+<script type="module">
+import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js';
+import { getFirestore, doc, getDoc, setDoc, onSnapshot, collection, getDocs, deleteDoc, addDoc, updateDoc } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js';
+
+const firebaseConfig = {
+  apiKey: "AIzaSyBH9-upujdVbbMzJ4O0JJqZotS-rAKsI0s",
+  authDomain: "equipos-presialex.firebaseapp.com",
+  projectId: "equipos-presialex",
+  storageBucket: "equipos-presialex.firebasestorage.app",
+  messagingSenderId: "780089838879",
+  appId: "1:780089838879:web:cace532a1b78747afcb42a"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+const GC_CATS=[
+  {group:'Balón parado',cats:['Córner','Falta directa','Penalti','Saque de banda']},
+  {group:'Errores propios',cats:['Mal despeje','Pérdida en salida','Error individual','Desmarque a la espalda','Error en salida de balón','Falta de intensidad en defensa','Falta de comunicación defensiva']},
+  {group:'Situación de juego',cats:['Contraataque','Centros laterales','Segundo palo','Presión alta superada']}
+];
+const ALL_CATS=GC_CATS.reduce(function(a,g){return a.concat(g.cats);},[]);
+const ROLES=['Titular','Suplente','No convocado','Lesión','Dec. técnica','Rotación'];
+const ROLE_CLASS={Titular:'badge-T',Suplente:'badge-S','No convocado':'badge-X','Lesión':'badge-X','Dec. técnica':'badge-X','Rotación':'badge-X'};
+const TEAM_LABEL={alev:'Alevín',benj:'Benjamín'};
+const POS_INIT={'Portero':'PO','Defensa Central':'DC','Lateral':'LAT','Centrocampista':'MC','Extremo':'EX','Delantero':'DEL'};
+const PIE_CLASS={Derecha:'tag-pie-d',Izquierda:'tag-pie-i',Ambas:'tag-pie-a'};
+const DONUT_COLORS=['#E24B4A','#378ADD','#639922','#EF9F27','#9b59b6','#1abc9c','#e67e22','#e91e63','#3498db','#2ecc71','#f39c12','#95a5a6','#e74c3c','#16a085','#8e44ad'];
+
+let currentTeam='alev', selectedPrio='Alta', gcCounts={};
+let cachedData={alev:{players:[],attendance:{},matches:[],objetivos:[]},benj:{players:[],attendance:{},matches:[],objetivos:[]}};
+let unsubscribes=[];
+
+function syncStatus(ok,msg){
+  const dot=document.getElementById('sync-dot'),txt=document.getElementById('sync-txt');
+  dot.className='sync-dot '+(ok==='ok'?'ok':ok==='err'?'err':'loading');
+  txt.textContent=msg;
+}
+
+function teamCol(col){return collection(db,'teams',currentTeam,col);}
+function teamDoc(col,id){return doc(db,'teams',currentTeam,col,id);}
+
+async function initApp(){
+  try{
+    await getDoc(doc(db,'teams','alev'));
+    syncStatus('ok','Sincronizado');
+    document.getElementById('loading-overlay').style.display='none';
+    document.getElementById('main-app').style.display='block';
+    subscribeAll();
+    renderAll();
+  } catch(e){
+    syncStatus('err','Error de conexión');
+    document.getElementById('loading-overlay').innerHTML='<div style="text-align:center;padding:2rem;color:#E24B4A"><i class="ti ti-wifi-off" style="font-size:40px;display:block;margin-bottom:12px"></i>Sin conexión. Comprueba tu red.</div>';
+  }
+}
+
+function subscribeAll(){
+  unsubscribes.forEach(u=>u());unsubscribes=[];
+  ['alev','benj'].forEach(team=>{
+    ['players','matches','objetivos'].forEach(col=>{
+      const u=onSnapshot(collection(db,'teams',team,col),snap=>{
+        cachedData[team][col]=snap.docs.map(d=>({...d.data(),_id:d.id}));
+        if(team===currentTeam) renderAll();
+        syncStatus('ok','Sincronizado');
+      },()=>syncStatus('err','Error sync'));
+      unsubscribes.push(u);
+    });
+    const u2=onSnapshot(doc(db,'teams',team,'attendance','data'),snap=>{
+      cachedData[team].attendance=snap.exists()?snap.data():{};
+      if(team===currentTeam) renderAll();
+    },()=>{});
+    unsubscribes.push(u2);
+  });
+}
+
+function getPlayers(){return cachedData[currentTeam].players;}
+function getMatches(){return cachedData[currentTeam].matches.sort((a,b)=>b.fecha>a.fecha?1:-1);}
+function getObjetivos(){return cachedData[currentTeam].objetivos;}
+function getAttendance(){return cachedData[currentTeam].attendance||{};}
+
+window.switchTeam=function(t){
+  currentTeam=t;
+  document.getElementById('tbtn-alev').className='team-btn'+(t==='alev'?' active-alev':'');
+  document.getElementById('tbtn-benj').className='team-btn'+(t==='benj'?' active-benj':'');
+  const ic=t==='alev'?'ind-alev':'ind-benj',il=TEAM_LABEL[t];
+  ['plantilla','asistencia','partido','objetivos'].forEach(id=>{const el=document.getElementById('ind-'+id);if(el){el.className='team-ind '+ic;el.textContent=il;}});
+  const active=document.querySelector('.section.active');
+  refreshSection(active?active.id.replace('sec-',''):'plantilla');
+};
+
+window.showSection=function(id){
+  document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('.nav button').forEach(b=>b.classList.remove('active'));
+  document.getElementById('sec-'+id).classList.add('active');
+  event.target.closest('button').classList.add('active');
+  refreshSection(id);
+};
+
+function refreshSection(id){
+  if(id==='plantilla') renderPlantilla();
+  else if(id==='asistencia'){document.getElementById('att-list').innerHTML='';document.getElementById('att-week').value='';}
+  else if(id==='partidos'){gcCounts={};renderGcEntry();renderMatchPlayers();if(document.getElementById('ptab-historial').style.display!=='none')renderHistorial();}
+  else if(id==='stats') renderStats();
+  else if(id==='objetivos') renderObjetivos();
+}
+
+function renderAll(){
+  const active=document.querySelector('.section.active');
+  if(active) refreshSection(active.id.replace('sec-',''));
+}
+
+window.showPartidoTab=function(t){
+  document.getElementById('ptab-nuevo').style.display=t==='nuevo'?'block':'none';
+  document.getElementById('ptab-historial').style.display=t==='historial'?'block':'none';
+  document.querySelectorAll('.tab-inner button').forEach((b,i)=>{b.classList.toggle('active',(t==='nuevo'&&i===0)||(t==='historial'&&i===1));});
+  if(t==='historial') renderHistorial();
+};
+
+window.addPlayer=async function(){
+  const n=document.getElementById('p-nombre').value.trim();if(!n) return;
+  syncStatus('loading','Guardando...');
+  await addDoc(teamCol('players'),{nombre:n,dorsal:document.getElementById('p-dorsal').value||'?',pos:document.getElementById('p-pos').value,pos2:document.getElementById('p-pos2').value,pie:document.getElementById('p-pie').value});
+  document.getElementById('p-nombre').value='';document.getElementById('p-dorsal').value='';document.getElementById('p-pos2').value='';
+};
+
+window.deletePlayer=async function(id){
+  if(!confirm('¿Eliminar jugador?')) return;
+  syncStatus('loading','Eliminando...');
+  await deleteDoc(teamDoc('players',id));
+};
+
+function renderPlantilla(){
+  const players=getPlayers(),el=document.getElementById('lista-plantilla');
+  if(!players.length){el.innerHTML='<div class="empty"><i class="ti ti-users"></i>Sin jugadores en este equipo.</div>';return;}
+  el.innerHTML='<div class="card">'+players.map(p=>`
+    <div class="player-item">
+      <div class="player-avatar">${POS_INIT[p.pos]||'?'}</div>
+      <div class="player-info">
+        <div class="player-name">#${p.dorsal} ${p.nombre}</div>
+        <div class="player-meta">
+          <span class="tag">${p.pos}</span>
+          ${p.pos2?`<span class="tag"><i class="ti ti-arrows-exchange" style="font-size:11px"></i> ${p.pos2}</span>`:''}
+          ${p.pie?`<span class="tag ${PIE_CLASS[p.pie]||''}">${p.pie==='Ambas'?'Ambidiestro':'Pie '+p.pie.toLowerCase()}</span>`:''}
+        </div>
+      </div>
+      <button class="btn btn-danger btn-sm" onclick="deletePlayer('${p._id}')"><i class="ti ti-trash" style="font-size:13px"></i></button>
+    </div>`).join('')+'</div>';
+}
+
+window.loadAttendance=async function(){
+  const week=document.getElementById('att-week').value,players=getPlayers();
+  if(!week||!players.length){document.getElementById('att-list').innerHTML='<div class="empty">Selecciona una semana y añade jugadores primero.</div>';return;}
+  const att=getAttendance();
+  if(!att[week]) att[week]={};
+  players.forEach(p=>{if(!att[week][p._id]) att[week][p._id]={L:'',X:'',V:''};});
+  await setDoc(doc(db,'teams',currentTeam,'attendance','data'),att);
+  renderAttendance(week);
+};
+
+window.toggleDay=async function(week,pid,day){
+  const att={...getAttendance()};
+  const cycle=['','p','a','j'];
+  att[week][pid][day]=cycle[(cycle.indexOf(att[week][pid][day])+1)%cycle.length];
+  syncStatus('loading','Guardando...');
+  await setDoc(doc(db,'teams',currentTeam,'attendance','data'),att);
+};
+
+function renderAttendance(week){
+  const players=getPlayers(),att=getAttendance();
+  const dayLabel={L:'Lun',X:'Mié',V:'Vie'},stateLabel={p:'P',a:'A',j:'J','':'–'};
+  document.getElementById('att-list').innerHTML=`<div class="legend">
+    <span class="legend-item"><span class="dot dot-p"></span>Presente</span>
+    <span class="legend-item"><span class="dot dot-a"></span>Ausente</span>
+    <span class="legend-item"><span class="dot dot-j"></span>Justificado</span>
+  </div>`+players.map(p=>{
+    const d=att[week]&&att[week][p._id]?att[week][p._id]:{L:'',X:'',V:''};
+    return `<div class="card" style="margin-bottom:.6rem"><div style="display:flex;align-items:center;gap:10px">
+      <div class="player-avatar">${POS_INIT[p.pos]||'?'}</div>
+      <div><div class="player-name">#${p.dorsal} ${p.nombre}</div>
+      <div class="attend-grid">${['L','X','V'].map(dy=>`<span class="aday ${d[dy]}" onclick="toggleDay('${week}','${p._id}','${dy}')">${dayLabel[dy]} ${stateLabel[d[dy]]}</span>`).join('')}</div>
+      </div></div></div>`;}).join('');
+}
+
+function renderMatchPlayers(){
+  const players=getPlayers(),el=document.getElementById('match-players');
+  if(!players.length){el.innerHTML='<div class="empty">Añade jugadores primero.</div>';return;}
+  el.innerHTML=players.map(p=>`
+    <div class="playrow">
+      <span style="font-size:13px;font-weight:500;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${p.nombre}</span>
+      <select id="mr-${p._id}" style="font-size:11px;padding:3px 2px">${ROLES.map(r=>`<option>${r}</option>`).join('')}</select>
+      <input type="number" id="mm-${p._id}" min="0" max="90" placeholder="0" style="font-size:13px;padding:4px 5px;text-align:center">
+      <input type="number" id="mg-${p._id}" min="0" placeholder="0" style="font-size:13px;padding:4px 5px;text-align:center">
+      <input type="number" id="ma-${p._id}" min="0" placeholder="0" style="font-size:13px;padding:4px 5px;text-align:center">
+      <div class="val-row" id="mv-${p._id}">${[1,2,3,4,5].map(v=>`<span class="val-btn" onclick="setVal('${p._id}',${v})">${v}</span>`).join('')}</div>
+    </div>`).join('');
+}
+
+window.setVal=function(pid,v){
+  const btns=document.querySelectorAll('#mv-'+pid+' .val-btn');
+  btns.forEach((b,i)=>{
+    const cur=b.className.includes('sel-'+(i+1));
+    // si ya estaba seleccionado, deseleccionar; si no, seleccionar
+    b.className='val-btn'+((!cur&&i+1===v)?' sel-'+v:'');
+  });
+};
+
+function getVal(pid){
+  const btns=document.querySelectorAll('#mv-'+pid+' .val-btn');
+  for(let i=0;i<btns.length;i++) if(btns[i].className.includes('sel-')) return i+1;
+  return null;
+}
+
+function renderGcEntry(){
+  document.getElementById('gc-entry').innerHTML=GC_CATS.map(g=>`
+    <div class="gc-group-title">${g.group}</div>
+    ${g.cats.map(c=>`
+      <div class="gc-item">
+        <span class="gc-label">${c}</span>
+        <span class="gc-btn" onclick="changeGc('${c}',-1)">−</span>
+        <span class="gc-count${(gcCounts[c]||0)>0?' active':''}" id="gcc-${c.replace(/[^a-zA-Z0-9]/g,'_')}">${gcCounts[c]||0}</span>
+        <span class="gc-btn" onclick="changeGc('${c}',1)">+</span>
+      </div>`).join('')}`).join('');
+}
+
+window.changeGc=function(cat,delta){
+  gcCounts[cat]=(gcCounts[cat]||0)+delta;
+  if(gcCounts[cat]<0) gcCounts[cat]=0;
+  const el=document.getElementById('gcc-'+cat.replace(/[^a-zA-Z0-9]/g,'_'));
+  if(el){el.textContent=gcCounts[cat];el.className='gc-count'+(gcCounts[cat]>0?' active':'');}
+  const total=Object.values(gcCounts).reduce((s,v)=>s+v,0);
+  const inp=document.getElementById('m-gc');
+  if(inp&&parseInt(inp.value||0)<total) inp.value=total;
+};
+
+window.saveMatch=async function(){
+  const rival=document.getElementById('m-rival').value.trim(),fecha=document.getElementById('m-fecha').value;
+  if(!rival||!fecha){alert('Indica rival y fecha.');return;}
+  const gf=parseInt(document.getElementById('m-gf').value)||0,gc=parseInt(document.getElementById('m-gc').value)||0;
+  const players=getPlayers();
+  const playerData=players.map(p=>({id:p._id,nombre:p.nombre,dorsal:p.dorsal,pos:p.pos,rol:document.getElementById('mr-'+p._id).value,minutos:parseInt(document.getElementById('mm-'+p._id).value)||0,goles:parseInt(document.getElementById('mg-'+p._id).value)||0,asistencias:parseInt(document.getElementById('ma-'+p._id).value)||0,valoracion:getVal(p._id)}));
+  syncStatus('loading','Guardando...');
+  await addDoc(teamCol('matches'),{rival,fecha,gf,gc,gcDesglose:{...gcCounts},players:playerData,ts:Date.now()});
+  ['m-rival','m-fecha','m-gf','m-gc'].forEach(id=>document.getElementById(id).value='');
+  gcCounts={};renderGcEntry();renderMatchPlayers();
+  alert('Partido guardado.');
+};
+
+window.deleteMatch=async function(id){
+  if(!confirm('¿Borrar este partido? No se puede deshacer.')) return;
+  syncStatus('loading','Eliminando...');
+  await deleteDoc(teamDoc('matches',id));
+};
+
+function renderHistorial(){
+  const matches=getMatches(),el=document.getElementById('historial-list');
+  if(!matches.length){el.innerHTML='<div class="empty"><i class="ti ti-ball-football"></i>Sin partidos registrados.</div>';return;}
+  el.innerHTML=matches.map(m=>{
+    const gcCats=m.gcDesglose?Object.entries(m.gcDesglose).filter(([,v])=>v>0).map(([k,v])=>`${k} (${v})`).join(', '):'';
+    const result=m.gf>m.gc?'V':m.gf===m.gc?'E':'D';
+    const rc=result==='V'?'var(--green-text)':result==='D'?'var(--red-text)':'var(--text2)';
+    const rb=result==='V'?'var(--green-bg)':result==='D'?'var(--red-bg)':'var(--bg3)';
+    return `<div class="match-card">
+      <div class="match-header">
+        <div><div class="match-rival">vs ${m.rival}</div><div class="match-date"><i class="ti ti-calendar" style="font-size:12px;vertical-align:-1px"></i> ${m.fecha}</div></div>
+        <div style="display:flex;align-items:center;gap:8px">
+          <span style="font-size:11px;font-weight:500;padding:3px 8px;border-radius:20px;background:${rb};color:${rc}">${result}</span>
+          <span class="score-pill">${m.gf} – ${m.gc}</span>
+          <button class="btn btn-danger btn-sm" onclick="deleteMatch('${m._id}')"><i class="ti ti-trash" style="font-size:13px"></i></button>
+        </div>
+      </div>
+      ${gcCats?`<div style="font-size:12px;color:var(--text2);margin-bottom:.5rem;padding:6px 8px;background:var(--bg3);border-radius:var(--radius)"><i class="ti ti-shield" style="font-size:12px"></i> ${gcCats}</div>`:''}
+      <div style="font-size:12px;color:var(--text2);display:flex;flex-wrap:wrap;gap:4px">
+        ${(m.players||[]).filter(p=>p.rol==='Titular'||p.rol==='Suplente').map(p=>`
+          <span style="display:inline-flex;align-items:center;gap:3px;margin:2px 0">
+            <span class="badge ${ROLE_CLASS[p.rol]||'badge-X'}">${p.rol==='Titular'?'T':'S'}</span>
+            <span style="color:var(--text)">${p.nombre}</span>${p.goles?`<span style="color:var(--green-text)"> ⚽${p.goles}</span>`:''}${p.asistencias?` 🎯${p.asistencias}`:''}${p.valoracion?` <b style="color:var(--text)">${p.valoracion}/5</b>`:''}
+          </span>`).join('')}
+      </div>
+    </div>`;}).join('');
+}
+
+function renderStats(){
+  const players=getPlayers(),matches=getMatches(),attendance=getAttendance(),el=document.getElementById('stats-content');
+  if(!players.length){el.innerHTML='<div class="empty"><i class="ti ti-chart-bar"></i>Sin datos todavía.</div>';return;}
+
+  const stats={};
+  players.forEach(p=>{stats[p._id]={nombre:p.nombre,dorsal:p.dorsal,pos:p.pos,goles:0,asistencias:0,partidos:0,minutos:0,titularidades:0,vals:[],attP:0,attTotal:0};});
+  const gcTotal={};ALL_CATS.forEach(c=>{gcTotal[c]=0;});
+  let totalGF=0,totalGC=0,wins=0,draws=0,losses=0;
+  const resultsByMatch=[];
+
+  matches.forEach(m=>{
+    totalGF+=m.gf;totalGC+=m.gc;
+    if(m.gf>m.gc) wins++;else if(m.gf===m.gc) draws++;else losses++;
+    resultsByMatch.push({fecha:m.fecha,gf:m.gf,gc:m.gc});
+    if(m.gcDesglose) Object.entries(m.gcDesglose).forEach(([k,v])=>{if(gcTotal[k]!==undefined) gcTotal[k]+=v;});
+    (m.players||[]).forEach(mp=>{
+      if(!stats[mp.id]) return;
+      if(mp.rol==='Titular'||mp.rol==='Suplente'){stats[mp.id].partidos++;stats[mp.id].minutos+=mp.minutos;if(mp.rol==='Titular')stats[mp.id].titularidades++;}
+      stats[mp.id].goles+=mp.goles;stats[mp.id].asistencias+=mp.asistencias;
+      if(mp.valoracion) stats[mp.id].vals.push(mp.valoracion);
+    });
+  });
+
+  Object.values(attendance).forEach(week=>{
+    Object.entries(week).forEach(([pid,days])=>{
+      if(!stats[pid]) return;
+      stats[pid].attTotal+=3;stats[pid].attP+=Object.values(days).filter(v=>v==='p').length;
+    });
+  });
+
+  const gcFiltered=Object.entries(gcTotal).filter(([,v])=>v>0).sort((a,b)=>b[1]-a[1]);
+  const maxGc=Math.max(...gcFiltered.map(([,v])=>v),1);
+  const totalGcRegistered=gcFiltered.reduce((s,[,v])=>s+v,0);
+
+  // Donut SVG
+  function buildDonut(data,total){
+    if(!total) return '<div class="empty" style="padding:1rem">Sin goles registrados aún.</div>';
+    const r=60,cx=75,cy=75,circ=2*Math.PI*r;
+    let offset=0;
+    const slices=data.map(([cat,n],i)=>{
+      const pct=n/total,dash=pct*circ,gap=circ-dash;
+      const el=`<circle cx="${cx}" cy="${cy}" r="${r}" fill="none" stroke="${DONUT_COLORS[i%DONUT_COLORS.length]}" stroke-width="22" stroke-dasharray="${dash} ${gap}" stroke-dashoffset="${-offset}" transform="rotate(-90 ${cx} ${cy})"/>`;
+      offset+=dash;
+      return el;
+    }).join('');
+    const legend=data.slice(0,8).map(([cat,n],i)=>`
+      <div class="donut-leg-item">
+        <span class="donut-dot" style="background:${DONUT_COLORS[i%DONUT_COLORS.length]}"></span>
+        <span style="flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${cat}</span>
+        <b style="margin-left:4px;color:var(--text)">${n}</b>
+      </div>`).join('');
+    return `<div class="donut-wrap">
+      <svg width="150" height="150" viewBox="0 0 150 150" style="flex-shrink:0">
+        <circle cx="75" cy="75" r="60" fill="none" stroke="var(--bg3)" stroke-width="22"/>
+        ${slices}
+        <text x="75" y="70" text-anchor="middle" font-size="22" font-weight="500" fill="var(--text)">${total}</text>
+        <text x="75" y="88" text-anchor="middle" font-size="11" fill="var(--text3)">goles</text>
+      </svg>
+      <div class="donut-legend">${legend}</div>
+    </div>`;
+  }
+
+  // Gráfica de evolución goles (últimos 8 partidos)
+  function buildGolesChart(){
+    const last=resultsByMatch.slice(-8);
+    if(!last.length) return '';
+    const maxG=Math.max(...last.map(m=>Math.max(m.gf,m.gc)),1);
+    const w=280,h=80,pad=8,barW=Math.floor((w-pad*2)/last.length)-4;
+    const bars=last.map((m,i)=>{
+      const x=pad+i*(barW+4);
+      const hGF=Math.round((m.gf/maxG)*(h-20));
+      const hGC=Math.round((m.gc/maxG)*(h-20));
+      return `<rect x="${x}" y="${h-hGF-10}" width="${barW/2-1}" height="${hGF}" rx="2" fill="#639922" opacity=".85"/>
+              <rect x="${x+barW/2}" y="${h-hGC-10}" width="${barW/2-1}" height="${hGC}" rx="2" fill="#E24B4A" opacity=".85"/>
+              <text x="${x+barW/2}" y="${h}" text-anchor="middle" font-size="8" fill="var(--text3)">${m.fecha.slice(5)}</text>`;
+    }).join('');
+    return `<div style="margin-bottom:.75rem">
+      <div style="display:flex;gap:12px;margin-bottom:8px;font-size:12px;color:var(--text2)">
+        <span><span style="display:inline-block;width:10px;height:10px;background:#639922;border-radius:2px;margin-right:4px;vertical-align:middle"></span>A favor</span>
+        <span><span style="display:inline-block;width:10px;height:10px;background:#E24B4A;border-radius:2px;margin-right:4px;vertical-align:middle"></span>En contra</span>
+      </div>
+      <svg width="100%" viewBox="0 0 ${w} ${h+4}" style="overflow:visible">${bars}</svg>
+    </div>`;
+  }
+
+  // Top goleadores
+  const topScorers=Object.values(stats).filter(p=>p.goles>0).sort((a,b)=>b.goles-a.goles).slice(0,5);
+  const maxGoles=Math.max(...topScorers.map(p=>p.goles),1);
+
+  el.innerHTML=`
+    <div class="stat-grid">
+      <div class="stat-card"><div class="stat-num">${matches.length}</div><div class="stat-lbl">Partidos jugados</div></div>
+      <div class="stat-card"><div class="stat-num" style="font-size:18px">${wins}V · ${draws}E · ${losses}D</div><div class="stat-lbl">Balance</div></div>
+      <div class="stat-card"><div class="stat-num" style="color:var(--green-text)">${totalGF}</div><div class="stat-lbl">Goles a favor</div></div>
+      <div class="stat-card"><div class="stat-num" style="color:var(--red-text)">${totalGC}</div><div class="stat-lbl">Goles en contra</div></div>
+      <div class="stat-card"><div class="stat-num">${matches.length?Math.round(totalGF/matches.length*10)/10:0}</div><div class="stat-lbl">Media GF/partido</div></div>
+      <div class="stat-card"><div class="stat-num">${matches.length?Math.round(totalGC/matches.length*10)/10:0}</div><div class="stat-lbl">Media GC/partido</div></div>
+    </div>
+
+    ${matches.length>1?`<div class="card">
+      <div class="card-title"><i class="ti ti-chart-bar"></i> Evolución de goles (últimos partidos)</div>
+      ${buildGolesChart()}
+    </div>`:''}
+
+    ${gcFiltered.length?`<div class="card">
+      <div class="card-title"><i class="ti ti-shield"></i> Cómo nos marcan</div>
+      ${buildDonut(gcFiltered,totalGcRegistered)}
+      <div style="margin-top:.75rem">
+        ${gcFiltered.map(([cat,n])=>`<div class="bar-row"><span class="bar-label">${cat}</span><div class="bar-track"><div class="bar-fill" style="width:${Math.round(n/maxGc*100)}%"></div></div><span class="bar-num">${n}</span></div>`).join('')}
+      </div>
+    </div>`:''}
+
+    ${topScorers.length?`<div class="card">
+      <div class="card-title"><i class="ti ti-award"></i> Top goleadores</div>
+      ${topScorers.map(p=>`<div class="bar-row">
+        <span class="bar-label">${p.nombre}</span>
+        <div class="bar-track"><div class="bar-fill" style="width:${Math.round(p.goles/maxGoles*100)}%;background:#639922"></div></div>
+        <span class="bar-num">⚽${p.goles}</span>
+      </div>`).join('')}
+    </div>`:''}
+
+    <div class="card">
+      <div class="card-title"><i class="ti ti-users"></i> Jugador por jugador</div>
+      ${Object.values(stats).sort((a,b)=>b.goles-a.goles).map(p=>{
+        const avgVal=p.vals.length?Math.round(p.vals.reduce((s,v)=>s+v,0)/p.vals.length*10)/10:null;
+        const attPct=p.attTotal?Math.round(p.attP/p.attTotal*100):null;
+        return `<div class="player-item">
+          <div class="player-avatar">${POS_INIT[p.pos]||'?'}</div>
+          <div class="player-info">
+            <div class="player-name">#${p.dorsal} ${p.nombre}</div>
+            <div class="player-meta">${p.partidos}P · ${p.titularidades}T · ${p.minutos}min</div>
+            <div style="font-size:12px;margin-top:3px;display:flex;gap:10px;flex-wrap:wrap;color:var(--text2)">
+              <span style="color:var(--green-text)">⚽ ${p.goles}</span>
+              <span>🎯 ${p.asistencias}</span>
+              ${avgVal!==null?`<span>Val <b style="color:var(--text)">${avgVal}/5</b></span>`:''}
+              ${attPct!==null?`<span>Asist <b style="color:var(--text)">${attPct}%</b></span>`:''}
+            </div>
+          </div>
+        </div>`;}).join('')}
+    </div>`;
+}
+
+window.selectPrio=function(p){
+  selectedPrio=p;
+  ['Alta','Media','Baja'].forEach(x=>{
+    const b=document.getElementById('pbtn-'+x.toLowerCase());
+    b.className='btn prio-btn'+(p===x?' sel-'+x.toLowerCase():'');
+  });
+};
+
+window.addObjetivo=async function(){
+  const titulo=document.getElementById('obj-titulo').value.trim();if(!titulo) return;
+  syncStatus('loading','Guardando...');
+  await addDoc(teamCol('objetivos'),{titulo,nota:document.getElementById('obj-nota').value.trim(),prioridad:selectedPrio,done:false,ts:Date.now()});
+  document.getElementById('obj-titulo').value='';document.getElementById('obj-nota').value='';
+};
+
+window.toggleObjetivo=async function(id,done){
+  syncStatus('loading','Guardando...');
+  await updateDoc(teamDoc('objetivos',id),{done:!done});
+};
+
+window.deleteObjetivo=async function(id){
+  syncStatus('loading','Eliminando...');
+  await deleteDoc(teamDoc('objetivos',id));
+};
+
+function renderObjetivos(){
+  const objetivos=getObjetivos(),el=document.getElementById('obj-list');
+  if(!objetivos.length){el.innerHTML='<div class="empty"><i class="ti ti-target"></i>Sin objetivos todavía.</div>';return;}
+  const order={Alta:0,Media:1,Baja:2};
+  const pending=objetivos.filter(o=>!o.done).sort((a,b)=>order[a.prioridad]-order[b.prioridad]);
+  const done=objetivos.filter(o=>o.done);
+  const renderObj=o=>`
+    <div class="obj-item${o.done?' done':''}">
+      <div class="obj-body"><div class="obj-title">${o.titulo}</div>${o.nota?`<div class="obj-note">${o.nota}</div>`:''}</div>
+      <div class="obj-actions"><span class="prio-tag prio-tag-${o.prioridad}">${o.prioridad}</span>
+        <div style="display:flex;gap:5px">
+          <span class="icon-btn${o.done?' done-check':''}" onclick="toggleObjetivo('${o._id}',${o.done})"><i class="ti ti-check" style="font-size:13px"></i></span>
+          <span class="icon-btn" style="color:var(--red-text);border-color:var(--red-border)" onclick="deleteObjetivo('${o._id}')"><i class="ti ti-trash" style="font-size:13px"></i></span>
+        </div>
+      </div>
+    </div>`;
+  let html='';
+  const alta=pending.filter(o=>o.prioridad==='Alta'),media=pending.filter(o=>o.prioridad==='Media'),baja=pending.filter(o=>o.prioridad==='Baja');
+  if(alta.length) html+=`<div class="card" style="margin-bottom:.75rem"><div class="obj-sec-hdr"><span class="dot dot-a"></span>Prioridad alta</div>${alta.map(renderObj).join('')}</div>`;
+  if(media.length) html+=`<div class="card" style="margin-bottom:.75rem"><div class="obj-sec-hdr"><span class="dot dot-j"></span>Prioridad media</div>${media.map(renderObj).join('')}</div>`;
+  if(baja.length) html+=`<div class="card" style="margin-bottom:.75rem"><div class="obj-sec-hdr"><span class="dot dot-p"></span>Prioridad baja</div>${baja.map(renderObj).join('')}</div>`;
+  if(done.length) html+=`<div class="card"><div class="obj-sec-hdr"><i class="ti ti-circle-check" style="font-size:13px"></i>Conseguidos (${done.length})</div>${done.map(renderObj).join('')}</div>`;
+  el.innerHTML=html;
+}
+
+// Exponer funciones globales necesarias
+window.renderAttendance=renderAttendance;
+
+initApp();
+</script>
+</body>
+</html>
