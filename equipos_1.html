@@ -78,7 +78,6 @@ textarea{resize:vertical;min-height:70px}
 .pos-filter{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:.75rem}
 .pos-filter button{font-size:11px;padding:4px 10px;border-radius:20px;border:1px solid var(--border);background:var(--bg3);color:var(--text2);cursor:pointer}
 .pos-filter button.active{background:var(--text);color:var(--bg);border-color:var(--text)}
-/* Modal */
 .modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:200;display:flex;align-items:flex-end;justify-content:center}
 .modal-sheet{background:var(--bg);border-radius:var(--radius-lg) var(--radius-lg) 0 0;width:100%;max-width:520px;max-height:92vh;overflow-y:auto;padding:1.25rem 1.25rem 2.5rem}
 .modal-header{display:flex;align-items:center;gap:10px;margin-bottom:1.25rem}
@@ -89,7 +88,6 @@ textarea{resize:vertical;min-height:70px}
 .star-row{display:flex;gap:6px}
 .star{font-size:22px;cursor:pointer;line-height:1;color:var(--text3)}
 .star.on{color:#EF9F27}
-/* Asistencia */
 .att-player-row{display:flex;align-items:center;gap:10px;padding:.65rem 0;border-bottom:1px solid var(--border)}
 .att-player-row:last-child{border-bottom:none}
 .att-chips{display:flex;gap:6px;margin-left:auto}
@@ -97,7 +95,6 @@ textarea{resize:vertical;min-height:70px}
 .att-chip.p{background:var(--green-bg);color:var(--green-text);border-color:var(--green-border)}
 .att-chip.a{background:var(--red-bg);color:var(--red-text);border-color:var(--red-border)}
 .att-chip.j{background:var(--amber-bg);color:var(--amber-text);border-color:var(--amber-border)}
-/* Stats */
 .stat-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-bottom:1rem}
 .stat-card{background:var(--bg3);border-radius:var(--radius-lg);padding:.9rem 1rem}
 .stat-num{font-size:24px;font-weight:500;color:var(--text);line-height:1}
@@ -114,7 +111,8 @@ textarea{resize:vertical;min-height:70px}
 .playrow-hdr{font-size:11px;color:var(--text3);font-weight:500}
 input[type=number]{-moz-appearance:textfield}
 input[type=number]::-webkit-outer-spin-button,input[type=number]::-webkit-inner-spin-button{-webkit-appearance:none}
-.match-card{background:var(--bg);border:1px solid var(--border);border-radius:var(--radius-lg);padding:1rem 1.25rem;margin-bottom:.75rem}
+.match-card{background:var(--bg);border:1px solid var(--border);border-radius:var(--radius-lg);padding:1rem 1.25rem;margin-bottom:.75rem;cursor:pointer}
+.match-card:hover{border-color:var(--border2)}
 .match-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:.6rem}
 .match-rival{font-size:15px;font-weight:500;color:var(--text)}
 .match-date{font-size:12px;color:var(--text3);margin-top:2px}
@@ -141,7 +139,6 @@ input[type=number]::-webkit-outer-spin-button,input[type=number]::-webkit-inner-
 .donut-legend{flex:1;min-width:0}
 .donut-leg-item{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--text2);margin-bottom:5px}
 .donut-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
-/* Objetivos */
 .prio-btn{flex:1;justify-content:center;font-size:13px;padding:9px 6px;border-radius:var(--radius)}
 .prio-btn.sel-alta{background:var(--red-bg);border-color:var(--red-border);color:var(--red-text)}
 .prio-btn.sel-media{background:var(--amber-bg);border-color:var(--amber-border);color:var(--amber-text)}
@@ -161,17 +158,14 @@ input[type=number]::-webkit-outer-spin-button,input[type=number]::-webkit-inner-
 .icon-btn{width:30px;height:30px;border-radius:50%;border:1px solid var(--border);background:var(--bg3);color:var(--text2);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:14px}
 .icon-btn.done-check{background:var(--green-bg);border-color:var(--green-border);color:var(--green-text)}
 .obj-sec-hdr{font-size:11px;font-weight:500;color:var(--text3);text-transform:uppercase;letter-spacing:.05em;margin:.25rem 0 .5rem;display:flex;align-items:center;gap:6px}
-/* AI */
-.ai-bubble{background:linear-gradient(135deg,#f0f4ff,#f8f0ff);border:1px solid #c5c8f0;border-radius:var(--radius-lg);padding:1rem 1.1rem;margin-bottom:.75rem;font-size:13px;color:#2d2d5e;line-height:1.6;position:relative}
+.ai-bubble{background:linear-gradient(135deg,#f0f4ff,#f8f0ff);border:1px solid #c5c8f0;border-radius:var(--radius-lg);padding:1rem 1.1rem;margin-bottom:.75rem;font-size:13px;color:#2d2d5e;line-height:1.6}
 .ai-bubble .ai-label{font-size:11px;font-weight:500;color:#7c4dff;display:flex;align-items:center;gap:5px;margin-bottom:6px}
 .ai-loading{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--text3);padding:.75rem 0}
 .ai-dot{width:6px;height:6px;border-radius:50%;background:var(--text3);animation:aidot .8s infinite}
 .ai-dot:nth-child(2){animation-delay:.15s}.ai-dot:nth-child(3){animation-delay:.3s}
 @keyframes aidot{0%,80%,100%{opacity:.2}40%{opacity:1}}
 .suggestion-card{background:linear-gradient(135deg,#f0f4ff,#f8f0ff);border:1px solid #c5c8f0;border-radius:var(--radius-lg);padding:.9rem 1rem;margin-bottom:.75rem}
-.suggestion-title{font-size:13px;font-weight:500;color:#2d2d5e;margin-bottom:4px;display:flex;align-items:flex-start;gap:6px}
 .suggestion-body{font-size:12px;color:#4a4a7a;line-height:1.5;margin-bottom:.6rem}
-/* Chat */
 .chat-wrap{display:flex;flex-direction:column;gap:8px;margin-bottom:1rem;max-height:360px;overflow-y:auto;padding:4px 0}
 .chat-msg{max-width:85%;padding:10px 13px;border-radius:14px;font-size:13px;line-height:1.5}
 .chat-msg.user{background:var(--text);color:var(--bg);align-self:flex-end;border-bottom-right-radius:4px}
@@ -180,7 +174,6 @@ input[type=number]::-webkit-outer-spin-button,input[type=number]::-webkit-inner-
 .chat-input-row input{flex:1}
 .chat-suggestions{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:.75rem}
 .chat-sug{font-size:12px;padding:5px 10px;border-radius:20px;border:1px solid var(--blue-border);background:var(--blue-bg);color:var(--blue-text);cursor:pointer}
-/* Alertas */
 .alert-card{border-radius:var(--radius-lg);padding:.85rem 1rem;margin-bottom:.65rem;border:1px solid;display:flex;align-items:flex-start;gap:10px}
 .alert-card.warn{background:var(--amber-bg);border-color:var(--amber-border)}
 .alert-card.info{background:var(--blue-bg);border-color:var(--blue-border)}
@@ -193,48 +186,34 @@ input[type=number]::-webkit-outer-spin-button,input[type=number]::-webkit-inner-
 .alert-card.warn .alert-text{color:var(--amber-text)}
 .alert-card.info .alert-text{color:var(--blue-text)}
 .alert-card.danger .alert-text{color:var(--red-text)}
-/* Loading */
 .loading-overlay{position:fixed;inset:0;background:var(--bg);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;z-index:999;font-size:14px;color:var(--text2)}
 .spinner{width:32px;height:32px;border:3px solid var(--border);border-top-color:var(--text);border-radius:50%;animation:spin .8s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
+.match-info-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-bottom:1rem}
+.match-info-card{background:var(--bg3);border-radius:var(--radius);padding:.65rem .85rem;text-align:center}
+.match-info-num{font-size:20px;font-weight:500;color:var(--text)}
+.match-info-lbl{font-size:11px;color:var(--text3);margin-top:2px}
 </style>
 </head>
 <body>
 <div id="loading-overlay" class="loading-overlay"><div class="spinner"></div><span>Conectando...</span></div>
 
 <!-- MODAL FICHA JUGADOR -->
-<div id="player-modal" class="modal-overlay" style="display:none" onclick="closeModalIfOutside(event)">
-  <div class="modal-sheet" id="modal-sheet">
+<div id="player-modal" class="modal-overlay" style="display:none" onclick="if(event.target===this)closeModal('player-modal')">
+  <div class="modal-sheet">
     <div class="modal-header">
       <div class="player-avatar" id="modal-avatar" style="width:42px;height:42px;font-size:12px"></div>
       <div class="modal-title" id="modal-name"></div>
-      <span class="modal-close" onclick="closeModal()"><i class="ti ti-x"></i></span>
+      <span class="modal-close" onclick="closeModal('player-modal')"><i class="ti ti-x"></i></span>
     </div>
-    <!-- Stats rápidas -->
     <div id="modal-quickstats" style="display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-bottom:1.25rem"></div>
-    <!-- Gráficas tendencia -->
-    <div class="ficha-section">
-      <div class="ficha-label">📈 Tendencia (últimos 10 partidos)</div>
-      <div id="modal-trend-chart"></div>
-    </div>
-    <!-- Radar -->
-    <div class="ficha-section">
-      <div class="ficha-label">🕸 Perfil de atributos</div>
-      <div id="modal-radar" style="display:flex;justify-content:center"></div>
-    </div>
-    <!-- Informe IA -->
-    <div class="ficha-section">
-      <div class="ficha-label">🤖 Informe IA</div>
-      <div id="modal-ai-report"><button class="btn btn-ai" onclick="generatePlayerReport()"><i class="ti ti-sparkles" style="font-size:14px"></i> Generar informe</button></div>
-    </div>
+    <div class="ficha-section"><div class="ficha-label">📈 Tendencia últimos 10 partidos</div><div id="modal-trend-chart"></div></div>
+    <div class="ficha-section"><div class="ficha-label">🕸 Perfil de atributos</div><div id="modal-radar" style="display:flex;justify-content:center"></div></div>
+    <div class="ficha-section"><div class="ficha-label">🤖 Informe IA</div><div id="modal-ai-report"><button class="btn btn-ai" onclick="generatePlayerReport()"><i class="ti ti-sparkles" style="font-size:14px"></i> Generar informe</button></div></div>
     <div style="height:1px;background:var(--border);margin:1rem 0"></div>
-    <!-- Edición -->
     <div class="ficha-section">
       <div class="ficha-label">Datos del jugador</div>
-      <div class="row2">
-        <div><label style="margin-top:0">Nombre</label><input id="edit-nombre" placeholder="Nombre"></div>
-        <div><label style="margin-top:0">Dorsal</label><input id="edit-dorsal" type="number" placeholder="7"></div>
-      </div>
+      <div class="row2"><div><label style="margin-top:0">Nombre</label><input id="edit-nombre"></div><div><label style="margin-top:0">Dorsal</label><input id="edit-dorsal" type="number"></div></div>
       <div class="row2">
         <div><label>Posición principal</label><select id="edit-pos"><option>Portero</option><option>Defensa Central</option><option>Lateral</option><option>Centrocampista</option><option>Extremo</option><option>Delantero</option></select></div>
         <div><label>Posición alternativa</label><select id="edit-pos2"><option value="">— Ninguna —</option><option>Portero</option><option>Defensa Central</option><option>Lateral</option><option>Centrocampista</option><option>Extremo</option><option>Delantero</option></select></div>
@@ -243,9 +222,8 @@ input[type=number]::-webkit-outer-spin-button,input[type=number]::-webkit-inner-
       <div class="form-actions"><button class="btn btn-primary" onclick="savePlayerEdit()"><i class="ti ti-device-floppy" style="font-size:14px"></i> Guardar cambios</button></div>
     </div>
     <div style="height:1px;background:var(--border);margin:1rem 0"></div>
-    <!-- Valoración técnica -->
     <div class="ficha-section">
-      <div class="ficha-label">Valoración técnica (1–5 ⭐)</div>
+      <div class="ficha-label">Valoración técnica (1-5 ⭐)</div>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:6px">
         <div><div style="font-size:12px;color:var(--text2);margin-bottom:4px">Técnica</div><div class="star-row" id="stars-tecnica"></div></div>
         <div><div style="font-size:12px;color:var(--text2);margin-bottom:4px">Velocidad</div><div class="star-row" id="stars-velocidad"></div></div>
@@ -255,29 +233,39 @@ input[type=number]::-webkit-outer-spin-button,input[type=number]::-webkit-inner-
         <div><div style="font-size:12px;color:var(--text2);margin-bottom:4px">Liderazgo</div><div class="star-row" id="stars-liderazgo"></div></div>
       </div>
     </div>
-    <div class="ficha-section">
-      <div class="ficha-label">💪 Fortalezas</div>
-      <textarea id="ficha-fortalezas" placeholder="Lo que mejor hace..."></textarea>
-    </div>
-    <div class="ficha-section">
-      <div class="ficha-label">📈 Aspectos a mejorar</div>
-      <textarea id="ficha-mejorar" placeholder="En qué debe trabajar..."></textarea>
-    </div>
-    <div class="ficha-section">
-      <div class="ficha-label">🧠 Notas del entrenador</div>
-      <textarea id="ficha-notas" placeholder="Observaciones, conversaciones con padres..."></textarea>
-    </div>
+    <div class="ficha-section"><div class="ficha-label">💪 Fortalezas</div><textarea id="ficha-fortalezas" placeholder="Lo que mejor hace..."></textarea></div>
+    <div class="ficha-section"><div class="ficha-label">📈 Aspectos a mejorar</div><textarea id="ficha-mejorar" placeholder="En qué debe trabajar..."></textarea></div>
+    <div class="ficha-section"><div class="ficha-label">🧠 Notas del entrenador</div><textarea id="ficha-notas" placeholder="Observaciones, conversaciones con padres..."></textarea></div>
     <button class="btn btn-primary btn-block" onclick="saveFicha()"><i class="ti ti-device-floppy" style="font-size:15px"></i> Guardar ficha</button>
+  </div>
+</div>
+
+<!-- MODAL DETALLE PARTIDO -->
+<div id="match-modal" class="modal-overlay" style="display:none" onclick="if(event.target===this)closeModal('match-modal')">
+  <div class="modal-sheet">
+    <div class="modal-header">
+      <div style="flex:1"><div class="modal-title" id="mm-title"></div><div style="font-size:12px;color:var(--text3);margin-top:2px" id="mm-date"></div></div>
+      <span class="modal-close" onclick="closeModal('match-modal')"><i class="ti ti-x"></i></span>
+    </div>
+    <div class="match-info-grid" id="mm-stats"></div>
+    <div id="mm-gcats" style="font-size:12px;color:var(--text2);margin-bottom:1rem;padding:8px 10px;background:var(--bg3);border-radius:var(--radius)"></div>
+    <div id="mm-players" style="font-size:12px;color:var(--text2);display:flex;flex-wrap:wrap;gap:4px;margin-bottom:1rem"></div>
+    <div style="height:1px;background:var(--border);margin:1rem 0"></div>
+    <div class="ficha-section"><div class="ficha-label">📝 Crónica del partido</div><textarea id="mm-cronica" placeholder="Cómo fue el partido, qué pasó, qué funcionó, qué no..." style="min-height:100px"></textarea></div>
+    <div class="ficha-section"><div class="ficha-label">🔍 Informe del rival</div><textarea id="mm-rival-info" placeholder="Formación, jugadores que destacan, cómo atacan, cómo defienden, debilidades..."></textarea></div>
+    <div class="ficha-section"><div class="ficha-label">📍 Contexto adicional</div><textarea id="mm-contexto" placeholder="Campo, condiciones, árbitro, incidencias..." style="min-height:60px"></textarea></div>
+    <div class="form-actions" style="margin-bottom:1rem">
+      <button class="btn btn-primary" onclick="saveMatchNotes()"><i class="ti ti-device-floppy" style="font-size:14px"></i> Guardar notas</button>
+      <button class="btn btn-ai btn-sm" onclick="generateMatchAnalysis()"><i class="ti ti-sparkles" style="font-size:13px"></i> Análisis IA</button>
+    </div>
+    <div id="mm-ai-analysis"></div>
   </div>
 </div>
 
 <div class="wrap" style="display:none" id="main-app">
   <div class="app-header"><h1>Gestión de equipos</h1><p>Alevín B · Benjamín</p></div>
   <div class="sync-bar"><div class="sync-dot" id="sync-dot"></div><span id="sync-txt">Conectando...</span></div>
-
-  <!-- ALERTAS -->
   <div id="alertas-wrap"></div>
-
   <div class="team-toggle">
     <div class="team-btn active-alev" id="tbtn-alev" onclick="switchTeam('alev')">
       <div class="team-btn-icon"><i class="ti ti-ball-football"></i></div>
@@ -300,10 +288,7 @@ input[type=number]::-webkit-outer-spin-button,input[type=number]::-webkit-inner-
   <div id="sec-plantilla" class="section active">
     <div class="card">
       <div class="card-title"><i class="ti ti-user-plus"></i> Nuevo jugador <span class="team-ind ind-alev" id="ind-plantilla">Alevín</span></div>
-      <div class="row2">
-        <div><label>Nombre</label><input id="p-nombre" placeholder="Nombre y apellido"></div>
-        <div><label>Dorsal</label><input id="p-dorsal" type="number" placeholder="7"></div>
-      </div>
+      <div class="row2"><div><label>Nombre</label><input id="p-nombre" placeholder="Nombre y apellido"></div><div><label>Dorsal</label><input id="p-dorsal" type="number" placeholder="7"></div></div>
       <div class="row2">
         <div><label>Posición principal</label><select id="p-pos"><option>Portero</option><option>Defensa Central</option><option>Lateral</option><option selected>Centrocampista</option><option>Extremo</option><option>Delantero</option></select></div>
         <div><label>Posición alternativa</label><select id="p-pos2"><option value="">— Ninguna —</option><option>Portero</option><option>Defensa Central</option><option>Lateral</option><option>Centrocampista</option><option>Extremo</option><option>Delantero</option></select></div>
@@ -390,20 +375,26 @@ input[type=number]::-webkit-outer-spin-button,input[type=number]::-webkit-inner-
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js';
 import { getFirestore, doc, getDoc, setDoc, onSnapshot, collection, deleteDoc, addDoc, updateDoc } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js';
 
-const firebaseConfig = {
-  apiKey: "AIzaSyBH9-upujdVbbMzJ4O0JJqZotS-rAKsI0s",
-  authDomain: "equipos-presialex.firebaseapp.com",
-  projectId: "equipos-presialex",
-  storageBucket: "equipos-presialex.firebasestorage.app",
-  messagingSenderId: "780089838879",
-  appId: "1:780089838879:web:cace532a1b78747afcb42a"
-};
-const fbApp = initializeApp(firebaseConfig);
-const db = getFirestore(fbApp);
+const firebaseConfig={apiKey:"AIzaSyBH9-upujdVbbMzJ4O0JJqZotS-rAKsI0s",authDomain:"equipos-presialex.firebaseapp.com",projectId:"equipos-presialex",storageBucket:"equipos-presialex.firebasestorage.app",messagingSenderId:"780089838879",appId:"1:780089838879:web:cace532a1b78747afcb42a"};
+const fbApp=initializeApp(firebaseConfig);
+const db=getFirestore(fbApp);
+
+
+const GEMINI_KEY='AIzaSyBBtl_qje_a8PdQO9w2gaWYSZ7UYToO_lA';
+const GEMINI_URL='https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-lite:generateContent';
+
+async function callAI(prompt){
+  try{
+    const r=await fetch(`${GEMINI_URL}?key=${GEMINI_KEY}`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({contents:[{parts:[{text:prompt}]}],generationConfig:{temperature:0.7,maxOutputTokens:800}})});
+    const d=await r.json();
+    if(d.error) return 'Error: '+d.error.message;
+    return d.candidates?.[0]?.content?.parts?.[0]?.text||'Sin respuesta.';
+  }catch(e){return 'Error al conectar con la IA. Revisa tu API key de Gemini.';}
+}
 
 const GC_CATS=[
   {group:'Balón parado',cats:['Córner','Falta directa','Penalti','Saque de banda']},
-  {group:'Errores propios',cats:['Mal despeje','Pérdida en salida','Error individual','Desmarque a la espalda','Error en salida de balón','Falta de intensidad en defensa','Falta de comunicación defensiva']},
+  {group:'Errores propios',cats:['Mal despeje','Pérdida en salida','Error individual','Desmarque a la espalda','Falta de intensidad en defensa','Falta de comunicación defensiva']},
   {group:'Situación de juego',cats:['Contraataque','Centros laterales','Segundo palo','Presión alta superada']}
 ];
 const ALL_CATS=GC_CATS.reduce((a,g)=>a.concat(g.cats),[]);
@@ -417,46 +408,21 @@ const POS_INIT={'Portero':'PO','Defensa Central':'DC','Lateral':'LAT','Centrocam
 const PIE_CLASS={Derecha:'tag-pie-d',Izquierda:'tag-pie-i',Ambas:'tag-pie-a'};
 const DONUT_COLORS=['#E24B4A','#378ADD','#639922','#EF9F27','#9b59b6','#1abc9c','#e67e22','#e91e63'];
 const STAR_ATTRS=['tecnica','velocidad','fisico','tactica','actitud','liderazgo'];
-const CHAT_SUGGESTIONS=[
-  '¿Quién tiene mejor progresión últimamente?',
-  '¿Quién juega menos minutos?',
-  '¿Qué tipo de goles nos marcan más?',
-  '¿Quién tiene mejor relación goles/minutos?',
-  '¿Quién tiene peor asistencia a entrenamientos?',
-  '¿Qué debería trabajar el equipo?'
-];
+const CHAT_SUGS=['¿Quién tiene mejor progresión?','¿Quién juega menos minutos?','¿Cómo nos marcan más goles?','¿Quién falta más a entrenamientos?','Dame info del último rival','¿Quién tiene mejor relación goles/minutos?'];
 
-let currentTeam='alev', selectedPrio='Alta', gcCounts={};
-let cachedData={alev:{players:[],attendance:{},matches:[],objetivos:[],fichas:{}},benj:{players:[],attendance:{},matches:[],objetivos:[],fichas:{}}};
-let unsubscribes=[];
-let currentPosFilter='Todos';
-let localAttendance={}, currentWeek='';
-let editingPlayerId=null, currentStarValues={};
-let chatHistory=[];
-let modalPlayerData=null;
+let currentTeam='alev',selectedPrio='Alta',gcCounts={};
+let cachedData={alev:{players:[],attendance:{},matches:[],objetivos:[],fichas:{},matchNotes:{}},benj:{players:[],attendance:{},matches:[],objetivos:[],fichas:{},matchNotes:{}}};
+let unsubscribes=[],currentPosFilter='Todos',localAttendance={},currentWeek='';
+let editingPlayerId=null,currentStarValues={},chatHistory=[],currentMatchId=null;
+let suggestionsLoaded={alev:false,benj:false};
 
 function syncStatus(ok,msg){
   const dot=document.getElementById('sync-dot'),txt=document.getElementById('sync-txt');
-  dot.className='sync-dot '+(ok==='ok'?'ok':ok==='err'?'err':'loading');
-  txt.textContent=msg;
+  if(dot) dot.className='sync-dot '+(ok==='ok'?'ok':ok==='err'?'err':'loading');
+  if(txt) txt.textContent=msg;
 }
 function teamCol(col){return collection(db,'teams',currentTeam,col);}
 function teamDoc(col,id){return doc(db,'teams',currentTeam,col,id);}
-
-async function callClaude(prompt, systemPrompt='Eres un asistente experto en fútbol base y formación de jugadores. Responde siempre en español, de forma concisa y práctica.'){
-  const resp = await fetch('https://api.anthropic.com/v1/messages',{
-    method:'POST',
-    headers:{'Content-Type':'application/json'},
-    body:JSON.stringify({
-      model:'claude-sonnet-4-20250514',
-      max_tokens:1000,
-      system: systemPrompt,
-      messages:[{role:'user',content:prompt}]
-    })
-  });
-  const data = await resp.json();
-  return data.content?.[0]?.text || 'No se pudo obtener respuesta.';
-}
 
 async function initApp(){
   try{
@@ -481,82 +447,51 @@ function subscribeAll(){
       },()=>syncStatus('err','Error sync'));
       unsubscribes.push(u);
     });
-    const u2=onSnapshot(doc(db,'teams',team,'attendance','data'),snap=>{
-      cachedData[team].attendance=snap.exists()?snap.data():{};
-      if(team===currentTeam&&!currentWeek) refreshCurrentSection();
-    },()=>{});
+    const u2=onSnapshot(doc(db,'teams',team,'attendance','data'),snap=>{cachedData[team].attendance=snap.exists()?snap.data():{};if(team===currentTeam&&!currentWeek)refreshCurrentSection();},()=>{});
     unsubscribes.push(u2);
-    const u3=onSnapshot(doc(db,'teams',team,'fichas','data'),snap=>{
-      cachedData[team].fichas=snap.exists()?snap.data():{};
-    },()=>{});
+    const u3=onSnapshot(doc(db,'teams',team,'fichas','data'),snap=>{cachedData[team].fichas=snap.exists()?snap.data():{};},()=>{});
     unsubscribes.push(u3);
+    const u4=onSnapshot(doc(db,'teams',team,'matchNotes','data'),snap=>{cachedData[team].matchNotes=snap.exists()?snap.data():{};},()=>{});
+    unsubscribes.push(u4);
   });
 }
 
-function refreshCurrentSection(){
-  const active=document.querySelector('.section.active');
-  if(active) refreshSection(active.id.replace('sec-',''));
-}
+function refreshCurrentSection(){const a=document.querySelector('.section.active');if(a)refreshSection(a.id.replace('sec-',''));}
 function getPlayers(){return cachedData[currentTeam].players;}
 function getMatches(){return [...cachedData[currentTeam].matches].sort((a,b)=>b.fecha>a.fecha?1:-1);}
 function getObjetivos(){return cachedData[currentTeam].objetivos;}
 function getAttendance(){return cachedData[currentTeam].attendance||{};}
 function getFichas(){return cachedData[currentTeam].fichas||{};}
+function getMatchNotes(){return cachedData[currentTeam].matchNotes||{};}
 
-// ALERTAS AUTOMÁTICAS
 function renderAlertas(){
   const players=getPlayers(),matches=getMatches(),att=getAttendance();
   const alerts=[];
   if(matches.length>=3){
     const last3=matches.slice(0,3);
-    const gcTotal={};
-    last3.forEach(m=>{if(m.gcDesglose) Object.entries(m.gcDesglose).forEach(([k,v])=>{gcTotal[k]=(gcTotal[k]||0)+v;});});
-    const balPar=['Córner','Falta directa','Penalti','Saque de banda'];
-    const balParTotal=balPar.reduce((s,c)=>s+(gcTotal[c]||0),0);
-    if(balParTotal>=3) alerts.push({type:'danger',icon:'ti-alert-triangle',text:`Habéis encajado ${balParTotal} goles a balón parado en los últimos 3 partidos. Trabajad la defensa en jugadas ensayadas.`});
-    const gcLast3=last3.reduce((s,m)=>s+m.gc,0);
-    if(gcLast3/3>2) alerts.push({type:'warn',icon:'ti-shield',text:`Media de ${(gcLast3/3).toFixed(1)} goles encajados en los últimos 3 partidos. Tendencia defensiva preocupante.`});
-    const wins=last3.filter(m=>m.gf>m.gc).length;
-    if(wins===0) alerts.push({type:'warn',icon:'ti-mood-sad',text:`El equipo lleva 3 partidos sin ganar. Puede ser buen momento para trabajar la motivación y revisar la táctica.`});
+    const gcT={};last3.forEach(m=>{if(m.gcDesglose)Object.entries(m.gcDesglose).forEach(([k,v])=>{gcT[k]=(gcT[k]||0)+v;});});
+    const bp=['Córner','Falta directa','Penalti','Saque de banda'].reduce((s,c)=>s+(gcT[c]||0),0);
+    if(bp>=3) alerts.push({type:'danger',icon:'ti-alert-triangle',text:`${bp} goles encajados a balón parado en los últimos 3 partidos.`});
+    if(last3.reduce((s,m)=>s+m.gc,0)/3>2) alerts.push({type:'warn',icon:'ti-shield',text:`Media de ${(last3.reduce((s,m)=>s+m.gc,0)/3).toFixed(1)} goles encajados en los últimos 3 partidos.`});
+    if(last3.filter(m=>m.gf>m.gc).length===0) alerts.push({type:'warn',icon:'ti-mood-sad',text:'El equipo lleva 3 partidos sin ganar.'});
   }
-  if(matches.length>=5&&players.length>0){
-    const last5=matches.slice(0,5);
-    players.forEach(p=>{
-      const participaciones=last5.filter(m=>(m.players||[]).some(mp=>mp.id===p._id&&(mp.rol==='Titular'||mp.rol==='Suplente')));
-      if(participaciones.length===0) alerts.push({type:'info',icon:'ti-user-off',text:`${p.nombre} no ha participado en los últimos 5 partidos.`});
-    });
-  }
-  const activeWeeks=Object.entries(att).filter(([,data])=>Object.values(data).some(d=>Object.values(d).includes('p')));
-  if(activeWeeks.length>=3){
-    const lastWeeks=activeWeeks.slice(-3);
-    let totalPresent=0,totalSlots=0;
-    lastWeeks.forEach(([,data])=>{
-      players.forEach(p=>{const d=data[p._id];if(d){totalSlots+=3;totalPresent+=Object.values(d).filter(v=>v==='p').length;}});
-    });
-    if(totalSlots>0&&totalPresent/totalSlots<0.6) alerts.push({type:'warn',icon:'ti-calendar-off',text:`La asistencia media a entrenamientos en las últimas 3 semanas está por debajo del 60%. Puede afectar al rendimiento.`});
-  }
-  const wrap=document.getElementById('alertas-wrap');
-  if(!wrap) return;
-  if(!alerts.length){wrap.innerHTML='';return;}
-  wrap.innerHTML=`<div style="margin-bottom:1rem">`+alerts.map(a=>`
-    <div class="alert-card ${a.type}">
-      <i class="ti ${a.icon} alert-icon"></i>
-      <span class="alert-text">${a.text}</span>
-    </div>`).join('')+`</div>`;
+  if(matches.length>=5) players.forEach(p=>{if(matches.slice(0,5).filter(m=>(m.players||[]).some(mp=>mp.id===p._id&&(mp.rol==='Titular'||mp.rol==='Suplente'))).length===0) alerts.push({type:'info',icon:'ti-user-off',text:`${p.nombre} no ha participado en los últimos 5 partidos.`});});
+  const aw=Object.entries(att).filter(([,d])=>Object.values(d).some(x=>Object.values(x).includes('p')));
+  if(aw.length>=3){let tot=0,pres=0;aw.slice(-3).forEach(([,d])=>{players.forEach(p=>{const x=d[p._id];if(x){tot+=3;pres+=Object.values(x).filter(v=>v==='p').length;}});});if(tot&&pres/tot<0.6) alerts.push({type:'warn',icon:'ti-calendar-off',text:'Asistencia a entrenos por debajo del 60% en las últimas 3 semanas.'});}
+  const wrap=document.getElementById('alertas-wrap');if(!wrap)return;
+  wrap.innerHTML=alerts.length?'<div style="margin-bottom:1rem">'+alerts.map(a=>`<div class="alert-card ${a.type}"><i class="ti ${a.icon} alert-icon"></i><span class="alert-text">${a.text}</span></div>`).join('')+'</div>':'';
 }
 
 window.switchTeam=function(t){
   currentTeam=t;currentWeek='';localAttendance={};
-  document.getElementById('att-list').innerHTML='';
-  document.getElementById('att-week').value='';
-  document.getElementById('att-save-wrap').style.display='none';
+  ['att-list','att-historial-content'].forEach(id=>{const el=document.getElementById(id);if(el)el.innerHTML='';});
+  const aw=document.getElementById('att-week');if(aw)aw.value='';
+  const sw=document.getElementById('att-save-wrap');if(sw)sw.style.display='none';
   document.getElementById('tbtn-alev').className='team-btn'+(t==='alev'?' active-alev':'');
   document.getElementById('tbtn-benj').className='team-btn'+(t==='benj'?' active-benj':'');
   const ic=t==='alev'?'ind-alev':'ind-benj',il=TEAM_LABEL[t];
   ['plantilla','asistencia','partido','objetivos','chat'].forEach(id=>{const el=document.getElementById('ind-'+id);if(el){el.className='team-ind '+ic;el.textContent=il;}});
-  chatHistory=[];
-  renderAlertas();
-  refreshCurrentSection();
+  chatHistory=[];renderAlertas();refreshCurrentSection();
 };
 
 window.showSection=function(id){
@@ -566,34 +501,35 @@ window.showSection=function(id){
   event.target.closest('button').classList.add('active');
   refreshSection(id);
 };
+
 function refreshSection(id){
   if(id==='plantilla'){renderPosFilter();renderPlantilla();}
-  else if(id==='partidos'){gcCounts={};renderGcEntry();renderMatchPlayers();if(document.getElementById('ptab-historial').style.display!=='none')renderHistorial();}
+  else if(id==='partidos'){gcCounts={};renderGcEntry();renderMatchPlayers();if(document.getElementById('ptab-historial')&&document.getElementById('ptab-historial').style.display!=='none')renderHistorial();}
   else if(id==='stats') renderStats();
-  else if(id==='objetivos'){renderObjetivos();}
+  else if(id==='objetivos'){renderObjetivos();generateObjSuggestions();}
   else if(id==='chat') renderChat();
 }
+
 window.showPartidoTab=function(t){
   document.getElementById('ptab-nuevo').style.display=t==='nuevo'?'block':'none';
   document.getElementById('ptab-historial').style.display=t==='historial'?'block':'none';
-  document.querySelectorAll('#sec-partidos .tab-inner button').forEach((b,i)=>{b.classList.toggle('active',(t==='nuevo'&&i===0)||(t==='historial'&&i===1));});
-  if(t==='historial') renderHistorial();
+  document.querySelectorAll('#sec-partidos .tab-inner button').forEach((b,i)=>b.classList.toggle('active',(t==='nuevo'&&i===0)||(t==='historial'&&i===1)));
+  if(t==='historial')renderHistorial();
 };
 window.showAttTab=function(t){
   document.getElementById('att-tab-registrar').style.display=t==='registrar'?'block':'none';
   document.getElementById('att-tab-historial').style.display=t==='historial'?'block':'none';
-  document.querySelectorAll('#sec-asistencia .tab-inner button').forEach((b,i)=>{b.classList.toggle('active',(t==='registrar'&&i===0)||(t==='historial'&&i===1));});
-  if(t==='historial') renderAttHistorial();
+  document.querySelectorAll('#sec-asistencia .tab-inner button').forEach((b,i)=>b.classList.toggle('active',(t==='registrar'&&i===0)||(t==='historial'&&i===1)));
+  if(t==='historial')renderAttHistorial();
 };
 
-// PLANTILLA
 window.addPlayer=async function(){
-  const n=document.getElementById('p-nombre').value.trim();if(!n) return;
+  const n=document.getElementById('p-nombre').value.trim();if(!n)return;
   syncStatus('loading','Guardando...');
   await addDoc(teamCol('players'),{nombre:n,dorsal:document.getElementById('p-dorsal').value||'?',pos:document.getElementById('p-pos').value,pos2:document.getElementById('p-pos2').value,pie:document.getElementById('p-pie').value});
   document.getElementById('p-nombre').value='';document.getElementById('p-dorsal').value='';document.getElementById('p-pos2').value='';
 };
-window.deletePlayer=async function(id){if(!confirm('¿Eliminar jugador?')) return;await deleteDoc(teamDoc('players',id));};
+window.deletePlayer=async function(id){if(!confirm('¿Eliminar jugador?'))return;await deleteDoc(teamDoc('players',id));};
 window.setPosFilter=function(pos){
   currentPosFilter=pos;
   document.querySelectorAll('.pos-filter button').forEach(b=>b.classList.toggle('active',b.dataset.pos===pos));
@@ -602,8 +538,8 @@ window.setPosFilter=function(pos){
 function renderPosFilter(){
   const players=getPlayers();
   const usedPos=[...new Set(players.map(p=>p.pos))];
-  const allPoss=['Todos',...POSITIONS.filter(p=>usedPos.includes(p))];
-  document.getElementById('pos-filter-wrap').innerHTML=players.length?`<div class="pos-filter">${allPoss.map(p=>`<button data-pos="${p}" class="${currentPosFilter===p?'active':''}" onclick="setPosFilter('${p}')">${p}</button>`).join('')}</div>`:'';
+  const all=['Todos',...POSITIONS.filter(p=>usedPos.includes(p))];
+  document.getElementById('pos-filter-wrap').innerHTML=players.length?`<div class="pos-filter">${all.map(p=>`<button data-pos="${p}" class="${currentPosFilter===p?'active':''}" onclick="setPosFilter('${p}')">${p}</button>`).join('')}</div>`:'';
 }
 function renderPlantilla(){
   const all=getPlayers();
@@ -616,24 +552,17 @@ function renderPlantilla(){
       <div class="player-avatar">${POS_INIT[p.pos]||'?'}</div>
       <div class="player-info" onclick="openPlayerModal('${p._id}')">
         <div class="player-name">#${p.dorsal} ${p.nombre} <i class="ti ti-chevron-right" style="font-size:12px;color:var(--text3)"></i></div>
-        <div class="player-meta">
-          <span class="tag">${p.pos}</span>
-          ${p.pos2?`<span class="tag"><i class="ti ti-arrows-exchange" style="font-size:11px"></i> ${p.pos2}</span>`:''}
-          ${p.pie?`<span class="tag ${PIE_CLASS[p.pie]||''}">${p.pie==='Ambas'?'Ambidiestro':'Pie '+p.pie.toLowerCase()}</span>`:''}
-        </div>
+        <div class="player-meta"><span class="tag">${p.pos}</span>${p.pos2?`<span class="tag"><i class="ti ti-arrows-exchange" style="font-size:11px"></i> ${p.pos2}</span>`:''}${p.pie?`<span class="tag ${PIE_CLASS[p.pie]||''}">${p.pie==='Ambas'?'Ambidiestro':'Pie '+p.pie.toLowerCase()}</span>`:''}</div>
       </div>
       <button class="btn btn-danger btn-sm" onclick="deletePlayer('${p._id}')"><i class="ti ti-trash" style="font-size:13px"></i></button>
     </div>`).join('')+'</div>';
 }
 
-// MODAL FICHA + IA
 window.openPlayerModal=function(id){
   const players=getPlayers(),matches=getMatches();
-  const p=players.find(x=>x._id===id);if(!p) return;
+  const p=players.find(x=>x._id===id);if(!p)return;
   editingPlayerId=id;
-  modalPlayerData=p;
-  const fichas=getFichas();
-  const ficha=fichas[id]||{};
+  const ficha=getFichas()[id]||{};
   document.getElementById('modal-avatar').textContent=POS_INIT[p.pos]||'?';
   document.getElementById('modal-name').textContent='#'+p.dorsal+' '+p.nombre;
   document.getElementById('edit-nombre').value=p.nombre;
@@ -646,309 +575,248 @@ window.openPlayerModal=function(id){
   document.getElementById('ficha-notas').value=ficha.notas||'';
   currentStarValues={...{tecnica:0,velocidad:0,fisico:0,tactica:0,actitud:0,liderazgo:0},...(ficha.stars||{})};
   STAR_ATTRS.forEach(attr=>renderStars(attr,currentStarValues[attr]||0));
-
-  // Stats del jugador
-  const playerMatches=matches.filter(m=>(m.players||[]).some(mp=>mp.id===id));
-  const pStats={partidos:0,minutos:0,goles:0,asistencias:0,titularidades:0,vals:[]};
-  playerMatches.forEach(m=>{
-    const mp=(m.players||[]).find(x=>x.id===id);if(!mp) return;
-    if(mp.rol==='Titular'||mp.rol==='Suplente'){pStats.partidos++;pStats.minutos+=mp.minutos||0;if(mp.rol==='Titular')pStats.titularidades++;}
-    pStats.goles+=mp.goles||0;pStats.asistencias+=mp.asistencias||0;
-    if(mp.valoracion) pStats.vals.push(mp.valoracion);
-  });
-  const avgVal=pStats.vals.length?Math.round(pStats.vals.reduce((s,v)=>s+v,0)/pStats.vals.length*10)/10:'-';
-
+  const pm=matches.filter(m=>(m.players||[]).some(mp=>mp.id===id));
+  const ps={partidos:0,minutos:0,goles:0,asistencias:0,titularidades:0,vals:[]};
+  pm.forEach(m=>{const mp=(m.players||[]).find(x=>x.id===id);if(!mp)return;if(mp.rol==='Titular'||mp.rol==='Suplente'){ps.partidos++;ps.minutos+=mp.minutos||0;if(mp.rol==='Titular')ps.titularidades++;}ps.goles+=mp.goles||0;ps.asistencias+=mp.asistencias||0;if(mp.valoracion)ps.vals.push(mp.valoracion);});
+  const avgVal=ps.vals.length?Math.round(ps.vals.reduce((s,v)=>s+v,0)/ps.vals.length*10)/10:'-';
   document.getElementById('modal-quickstats').innerHTML=`
-    <div class="stat-card" style="text-align:center"><div class="stat-num" style="font-size:20px">${pStats.partidos}</div><div class="stat-lbl">Partidos</div></div>
-    <div class="stat-card" style="text-align:center"><div class="stat-num" style="font-size:20px;color:var(--green-text)">${pStats.goles}</div><div class="stat-lbl">Goles</div></div>
-    <div class="stat-card" style="text-align:center"><div class="stat-num" style="font-size:20px;color:#378ADD">${pStats.asistencias}</div><div class="stat-lbl">Asistencias</div></div>
+    <div class="stat-card" style="text-align:center"><div class="stat-num" style="font-size:20px">${ps.partidos}</div><div class="stat-lbl">Partidos</div></div>
+    <div class="stat-card" style="text-align:center"><div class="stat-num" style="font-size:20px;color:var(--green-text)">${ps.goles}</div><div class="stat-lbl">Goles</div></div>
+    <div class="stat-card" style="text-align:center"><div class="stat-num" style="font-size:20px;color:#378ADD">${ps.asistencias}</div><div class="stat-lbl">Asistencias</div></div>
     <div class="stat-card" style="text-align:center"><div class="stat-num" style="font-size:20px">${avgVal}</div><div class="stat-lbl">Val. media</div></div>`;
-
-  // Gráfica tendencia últimos 10 partidos
-  const last10=playerMatches.slice(0,10).reverse();
+  const last10=pm.slice(0,10).reverse();
   if(last10.length>=2){
-    const svgW=320,svgH=90,padL=24,padR=10,padT=10,padB=24;
-    const w=svgW-padL-padR,h=svgH-padT-padB;
-    function toPoints(data,maxVal){
-      if(!maxVal) return '';
-      return data.map((v,i)=>`${padL+i*(w/(data.length-1))},${padT+h-(v/maxVal)*h}`).join(' ');
-    }
+    const sW=300,sH=90,pL=24,pR=10,pT=10,pB=24,w=sW-pL-pR,h=sH-pT-pB;
+    function toPts(data,mx){if(!mx)return'';return data.map((v,i)=>`${pL+i*(w/(data.length-1))},${pT+h-(v/mx)*h}`).join(' ');}
     const goals=last10.map(m=>{const mp=(m.players||[]).find(x=>x.id===id);return mp?mp.goles||0:0;});
     const assists=last10.map(m=>{const mp=(m.players||[]).find(x=>x.id===id);return mp?mp.asistencias||0:0;});
     const vals=last10.map(m=>{const mp=(m.players||[]).find(x=>x.id===id);return mp&&mp.valoracion?mp.valoracion:0;});
-    const maxG=Math.max(...goals,1),maxV=5;
-    const gPts=toPoints(goals,maxG),aPts=toPoints(assists,maxG),vPts=toPoints(vals,maxV);
-    const xLabels=last10.map((m,i)=>`<text x="${padL+i*(w/(last10.length-1))}" y="${svgH}" text-anchor="middle" font-size="8" fill="var(--text3)">${m.fecha?m.fecha.slice(5):''}</text>`).join('');
+    const mx=Math.max(...goals,...assists,1);
     document.getElementById('modal-trend-chart').innerHTML=`
       <div style="display:flex;gap:12px;margin-bottom:6px;font-size:11px;color:var(--text2)">
-        <span style="display:flex;align-items:center;gap:4px"><span style="width:12px;height:2px;background:#639922;display:inline-block"></span>Goles</span>
-        <span style="display:flex;align-items:center;gap:4px"><span style="width:12px;height:2px;background:#378ADD;display:inline-block"></span>Asist.</span>
-        <span style="display:flex;align-items:center;gap:4px"><span style="width:12px;height:2px;background:#EF9F27;display:inline-block;border-top:2px dashed #EF9F27"></span>Val.</span>
+        <span><span style="width:12px;height:2px;background:#639922;display:inline-block;vertical-align:middle;margin-right:3px"></span>Goles</span>
+        <span><span style="width:12px;height:2px;background:#378ADD;display:inline-block;vertical-align:middle;margin-right:3px"></span>Asist.</span>
+        <span><span style="width:12px;height:2px;background:#EF9F27;display:inline-block;vertical-align:middle;margin-right:3px"></span>Val.</span>
       </div>
-      <svg width="100%" viewBox="0 0 ${svgW} ${svgH}" style="overflow:visible">
-        ${goals.length>1?`<polyline points="${gPts}" fill="none" stroke="#639922" stroke-width="2" stroke-linejoin="round"/>`:'' }
-        ${assists.length>1?`<polyline points="${aPts}" fill="none" stroke="#378ADD" stroke-width="2" stroke-linejoin="round"/>`:'' }
-        ${vals.filter(v=>v>0).length>1?`<polyline points="${vPts}" fill="none" stroke="#EF9F27" stroke-width="2" stroke-dasharray="4 2" stroke-linejoin="round"/>`:'' }
-        ${xLabels}
+      <svg width="100%" viewBox="0 0 ${sW} ${sH}" style="overflow:visible">
+        ${goals.length>1?`<polyline points="${toPts(goals,mx)}" fill="none" stroke="#639922" stroke-width="2" stroke-linejoin="round"/>`:''}
+        ${assists.length>1?`<polyline points="${toPts(assists,mx)}" fill="none" stroke="#378ADD" stroke-width="2" stroke-linejoin="round"/>`:''}
+        ${vals.filter(v=>v>0).length>1?`<polyline points="${toPts(vals,5)}" fill="none" stroke="#EF9F27" stroke-width="2" stroke-dasharray="4 2" stroke-linejoin="round"/>`:''}
+        ${last10.map((m,i)=>`<text x="${pL+i*(w/(last10.length-1))}" y="${sH}" text-anchor="middle" font-size="8" fill="var(--text3)">${m.fecha?m.fecha.slice(5):''}</text>`).join('')}
       </svg>`;
-  } else {
-    document.getElementById('modal-trend-chart').innerHTML='<div style="font-size:12px;color:var(--text3);padding:.5rem 0">Necesitas al menos 2 partidos para ver la tendencia.</div>';
-  }
-
-  // Radar SVG
-  const stars=currentStarValues;
-  const vals2=[stars.tecnica||0,stars.velocidad||0,stars.fisico||0,stars.tactica||0,stars.actitud||0,stars.liderazgo||0];
-  const labels2=['Técnica','Velocidad','Físico','Táctica','Actitud','Liderazgo'];
-  const hasStars=vals2.some(v=>v>0);
-  if(hasStars){
+  } else {document.getElementById('modal-trend-chart').innerHTML='<div style="font-size:12px;color:var(--text3)">Necesitas al menos 2 partidos.</div>';}
+  const sv=currentStarValues;
+  const sv2=[sv.tecnica||0,sv.velocidad||0,sv.fisico||0,sv.tactica||0,sv.actitud||0,sv.liderazgo||0];
+  const sl=['Técnica','Velocidad','Físico','Táctica','Actitud','Liderazgo'];
+  if(sv2.some(v=>v>0)){
     const cx=100,cy=100,r=70,n=6;
-    function polar(i,val){const angle=(Math.PI*2*i/n)-Math.PI/2;const rv=r*(val/5);return [cx+rv*Math.cos(angle),cy+rv*Math.sin(angle)];}
-    const grid=[1,2,3,4,5].map(lv=>{const pts=[...Array(n)].map((_,i)=>polar(i,lv).join(',')).join(' ');return `<polygon points="${pts}" fill="none" stroke="var(--border)" stroke-width="0.8"/>`; }).join('');
+    function polar(i,val){const a=(Math.PI*2*i/n)-Math.PI/2,rv=r*(val/5);return [cx+rv*Math.cos(a),cy+rv*Math.sin(a)];}
+    const grid=[1,2,3,4,5].map(lv=>`<polygon points="${[...Array(n)].map((_,i)=>polar(i,lv).join(',')).join(' ')}" fill="none" stroke="var(--border)" stroke-width="0.8"/>`).join('');
     const axes=[...Array(n)].map((_,i)=>{const [x,y]=polar(i,5);return `<line x1="${cx}" y1="${cy}" x2="${x}" y2="${y}" stroke="var(--border)" stroke-width="0.8"/>`;}).join('');
-    const labelsSvg=[...Array(n)].map((_,i)=>{const [x,y]=polar(i,5.8);return `<text x="${x}" y="${y}" text-anchor="middle" dominant-baseline="middle" font-size="9" fill="var(--text2)">${labels2[i]}</text>`;}).join('');
-    const dataPoints=vals2.map((v,i)=>polar(i,v).join(',')).join(' ');
-    document.getElementById('modal-radar').innerHTML=`<svg width="200" height="200" viewBox="0 0 200 200">${grid}${axes}${labelsSvg}<polygon points="${dataPoints}" fill="rgba(55,138,221,0.2)" stroke="#378ADD" stroke-width="2"/></svg>`;
-  } else {
-    document.getElementById('modal-radar').innerHTML='<div style="font-size:12px;color:var(--text3);padding:.5rem 0">Puntúa los atributos abajo para ver el radar.</div>';
-  }
-
+    const lbls=[...Array(n)].map((_,i)=>{const [x,y]=polar(i,5.8);return `<text x="${x}" y="${y}" text-anchor="middle" dominant-baseline="middle" font-size="9" fill="var(--text2)">${sl[i]}</text>`;}).join('');
+    document.getElementById('modal-radar').innerHTML=`<svg width="200" height="200" viewBox="0 0 200 200">${grid}${axes}${lbls}<polygon points="${sv2.map((v,i)=>polar(i,v).join(',')).join(' ')}" fill="rgba(55,138,221,0.2)" stroke="#378ADD" stroke-width="2"/></svg>`;
+  } else {document.getElementById('modal-radar').innerHTML='<div style="font-size:12px;color:var(--text3)">Puntúa los atributos para ver el radar.</div>';}
   document.getElementById('modal-ai-report').innerHTML='<button class="btn btn-ai" onclick="generatePlayerReport()"><i class="ti ti-sparkles" style="font-size:14px"></i> Generar informe IA</button>';
   document.getElementById('player-modal').style.display='flex';
   document.body.style.overflow='hidden';
 };
 
 window.generatePlayerReport=async function(){
-  if(!editingPlayerId) return;
+  if(!editingPlayerId)return;
   const players=getPlayers(),matches=getMatches(),att=getAttendance();
-  const p=players.find(x=>x._id===editingPlayerId);if(!p) return;
-  const fichas=getFichas();
-  const ficha=fichas[editingPlayerId]||{};
-  const stars=currentStarValues;
-  const playerMatches=matches.filter(m=>(m.players||[]).some(mp=>mp.id===editingPlayerId));
-  const pStats={partidos:0,goles:0,asistencias:0,minutos:0,titularidades:0,vals:[]};
-  playerMatches.forEach(m=>{
-    const mp=(m.players||[]).find(x=>x.id===editingPlayerId);if(!mp) return;
-    if(mp.rol==='Titular'||mp.rol==='Suplente'){pStats.partidos++;pStats.minutos+=mp.minutos||0;if(mp.rol==='Titular')pStats.titularidades++;}
-    pStats.goles+=mp.goles||0;pStats.asistencias+=mp.asistencias||0;
-    if(mp.valoracion) pStats.vals.push(mp.valoracion);
-  });
-  const last5vals=pStats.vals.slice(-5);
-  const avgVal=pStats.vals.length?(pStats.vals.reduce((s,v)=>s+v,0)/pStats.vals.length).toFixed(1):'-';
-  const trend=last5vals.length>=3?(last5vals[last5vals.length-1]>last5vals[0]?'ascendente':'descendente'):'sin suficientes datos';
-  const activeWeeks=Object.entries(att).filter(([,data])=>Object.values(data).some(d=>Object.values(d).includes('p')));
-  let attPct='-';
-  if(activeWeeks.length>0){let tot=0,pres=0;activeWeeks.forEach(([,data])=>{const d=data[editingPlayerId];if(d){tot+=3;pres+=Object.values(d).filter(v=>v==='p'||v==='j').length;}});attPct=tot?Math.round(pres/tot*100)+'%':'-';}
-
-  const prompt=`Eres un asistente entrenador de fútbol base. Genera un informe breve y útil (máximo 5 frases) sobre este jugador de categoría alevín o benjamín:
-
-Jugador: ${p.nombre}, posición: ${p.pos}, pierna: ${p.pie}
-Estadísticas temporada: ${pStats.partidos} partidos, ${pStats.titularidades} titularidades, ${pStats.goles} goles, ${pStats.asistencias} asistencias, ${pStats.minutos} minutos
-Valoración media del entrenador: ${avgVal}/5. Tendencia reciente: ${trend}
-Asistencia a entrenamientos: ${attPct}
-Atributos valorados por el entrenador (1-5): Técnica ${stars.tecnica||'?'}, Velocidad ${stars.velocidad||'?'}, Físico ${stars.fisico||'?'}, Táctica ${stars.tactica||'?'}, Actitud ${stars.actitud||'?'}, Liderazgo ${stars.liderazgo||'?'}
-Fortalezas: ${ficha.fortalezas||'No especificadas'}
-Aspectos a mejorar: ${ficha.mejorar||'No especificados'}
-
-Genera un informe como si fuera un ojeador o entrenador: qué destaca, cómo evoluciona, qué debe trabajar. Sé directo y práctico.`;
-
+  const p=players.find(x=>x._id===editingPlayerId);if(!p)return;
+  const ficha=getFichas()[editingPlayerId]||{};
+  const sv=currentStarValues;
+  const pm=matches.filter(m=>(m.players||[]).some(mp=>mp.id===editingPlayerId));
+  const ps={partidos:0,goles:0,asistencias:0,minutos:0,titularidades:0,vals:[]};
+  pm.forEach(m=>{const mp=(m.players||[]).find(x=>x.id===editingPlayerId);if(!mp)return;if(mp.rol==='Titular'||mp.rol==='Suplente'){ps.partidos++;ps.minutos+=mp.minutos||0;if(mp.rol==='Titular')ps.titularidades++;}ps.goles+=mp.goles||0;ps.asistencias+=mp.asistencias||0;if(mp.valoracion)ps.vals.push(mp.valoracion);});
+  const l5=ps.vals.slice(-5);const avgVal=ps.vals.length?(ps.vals.reduce((s,v)=>s+v,0)/ps.vals.length).toFixed(1):'-';
+  const trend=l5.length>=3?(l5[l5.length-1]>l5[0]?'ascendente':'descendente'):'sin datos';
+  const aw=Object.entries(att).filter(([,d])=>Object.values(d).some(x=>Object.values(x).includes('p')));
+  let attPct='-';if(aw.length){let tot=0,pres=0;aw.forEach(([,d])=>{const x=d[editingPlayerId];if(x){tot+=3;pres+=Object.values(x).filter(v=>v==='p'||v==='j').length;}});attPct=tot?Math.round(pres/tot*100)+'%':'-';}
   document.getElementById('modal-ai-report').innerHTML='<div class="ai-loading"><div class="ai-dot"></div><div class="ai-dot"></div><div class="ai-dot"></div><span>Generando informe...</span></div>';
-  try{
-    const report=await callClaude(prompt);
-    document.getElementById('modal-ai-report').innerHTML=`<div class="ai-bubble"><div class="ai-label"><i class="ti ti-sparkles" style="font-size:13px"></i> Informe IA</div>${report}</div><button class="btn btn-ai btn-sm" onclick="generatePlayerReport()" style="margin-top:6px"><i class="ti ti-refresh" style="font-size:13px"></i> Regenerar</button>`;
-  }catch(e){
-    document.getElementById('modal-ai-report').innerHTML='<div style="font-size:12px;color:var(--red-text)">Error al generar el informe. Comprueba la conexión.</div>';
-  }
+  const report=await callAI(`Eres entrenador experto en fútbol base. Genera un informe breve (máximo 5 frases) en español sobre este jugador:
+Jugador: ${p.nombre}, posición: ${p.pos}, pierna: ${p.pie}
+Estadísticas: ${ps.partidos} partidos, ${ps.titularidades} titularidades, ${ps.goles} goles, ${ps.asistencias} asistencias, ${ps.minutos} minutos
+Val. media: ${avgVal}/5. Tendencia: ${trend}. Asistencia entrenos: ${attPct}
+Atributos (1-5): Técnica ${sv.tecnica||'?'}, Velocidad ${sv.velocidad||'?'}, Físico ${sv.fisico||'?'}, Táctica ${sv.tactica||'?'}, Actitud ${sv.actitud||'?'}, Liderazgo ${sv.liderazgo||'?'}
+Fortalezas: ${ficha.fortalezas||'No especificadas'}. A mejorar: ${ficha.mejorar||'No especificado'}
+Estilo ojeador: qué destaca, evolución, qué trabajar.`);
+  document.getElementById('modal-ai-report').innerHTML=`<div class="ai-bubble"><div class="ai-label"><i class="ti ti-sparkles" style="font-size:13px"></i> Informe IA</div>${report}</div><button class="btn btn-ai btn-sm" onclick="generatePlayerReport()" style="margin-top:6px"><i class="ti ti-refresh" style="font-size:13px"></i> Regenerar</button>`;
 };
 
-window.closeModal=function(){document.getElementById('player-modal').style.display='none';document.body.style.overflow='';editingPlayerId=null;modalPlayerData=null;};
-window.closeModalIfOutside=function(e){if(e.target===document.getElementById('player-modal')) closeModal();};
-function renderStars(attr,val){
-  const el=document.getElementById('stars-'+attr);if(!el) return;
-  el.innerHTML=[1,2,3,4,5].map(i=>`<span class="star${i<=val?' on':''}" onclick="setStar('${attr}',${i})">★</span>`).join('');
-}
+window.closeModal=function(id){document.getElementById(id).style.display='none';document.body.style.overflow='';if(id==='player-modal')editingPlayerId=null;if(id==='match-modal')currentMatchId=null;};
+function renderStars(attr,val){const el=document.getElementById('stars-'+attr);if(!el)return;el.innerHTML=[1,2,3,4,5].map(i=>`<span class="star${i<=val?' on':''}" onclick="setStar('${attr}',${i})">★</span>`).join('');}
 window.setStar=function(attr,val){currentStarValues[attr]=currentStarValues[attr]===val?0:val;renderStars(attr,currentStarValues[attr]);};
 window.savePlayerEdit=async function(){
-  if(!editingPlayerId) return;
+  if(!editingPlayerId)return;
   syncStatus('loading','Guardando...');
   await updateDoc(teamDoc('players',editingPlayerId),{nombre:document.getElementById('edit-nombre').value.trim(),dorsal:document.getElementById('edit-dorsal').value||'?',pos:document.getElementById('edit-pos').value,pos2:document.getElementById('edit-pos2').value,pie:document.getElementById('edit-pie').value});
   syncStatus('ok','Guardado');
 };
 window.saveFicha=async function(){
-  if(!editingPlayerId) return;
-  syncStatus('loading','Guardando...');
+  if(!editingPlayerId)return;syncStatus('loading','Guardando...');
   const fichas={...getFichas()};
   fichas[editingPlayerId]={fortalezas:document.getElementById('ficha-fortalezas').value,mejorar:document.getElementById('ficha-mejorar').value,notas:document.getElementById('ficha-notas').value,stars:{...currentStarValues}};
   await setDoc(doc(db,'teams',currentTeam,'fichas','data'),fichas);
-  syncStatus('ok','Ficha guardada');
-  closeModal();
+  syncStatus('ok','Ficha guardada');closeModal('player-modal');
+};
+
+// DETALLE PARTIDO
+window.openMatchModal=function(id){
+  const matches=getMatches();const m=matches.find(x=>x._id===id);if(!m)return;
+  currentMatchId=id;
+  const notes=getMatchNotes()[id]||{};
+  const result=m.gf>m.gc?'V':m.gf===m.gc?'E':'D';
+  document.getElementById('mm-title').textContent='vs '+m.rival+'  '+m.gf+'–'+m.gc;
+  document.getElementById('mm-date').textContent=m.fecha+' · '+result;
+  document.getElementById('mm-stats').innerHTML=`
+    <div class="match-info-card"><div class="match-info-num" style="color:var(--green-text)">${m.gf}</div><div class="match-info-lbl">Goles a favor</div></div>
+    <div class="match-info-card"><div class="match-info-num" style="color:var(--red-text)">${m.gc}</div><div class="match-info-lbl">Goles en contra</div></div>
+    <div class="match-info-card"><div class="match-info-num">${(m.players||[]).filter(p=>p.rol==='Titular').length}</div><div class="match-info-lbl">Titulares</div></div>
+    <div class="match-info-card"><div class="match-info-num">${(m.players||[]).reduce((s,p)=>s+(p.goles||0),0)}</div><div class="match-info-lbl">Goles marcados</div></div>`;
+  const gcCats=m.gcDesglose?Object.entries(m.gcDesglose).filter(([,v])=>v>0).map(([k,v])=>`${k} (${v})`).join(' · '):'Sin categorías';
+  document.getElementById('mm-gcats').innerHTML='<i class="ti ti-shield" style="font-size:12px"></i> '+gcCats;
+  document.getElementById('mm-players').innerHTML=(m.players||[]).filter(p=>p.rol==='Titular'||p.rol==='Suplente').map(p=>`<span style="display:inline-flex;align-items:center;gap:3px;margin:2px 4px 2px 0;font-size:12px"><span class="badge ${p.rol==='Titular'?'badge-T':'badge-S'}">${p.rol==='Titular'?'T':'S'}</span><span>${p.nombre}</span>${p.goles?`<span style="color:var(--green-text)"> ⚽${p.goles}</span>`:''}${p.asistencias?` 🎯${p.asistencias}`:''}${p.valoracion?` <b>${p.valoracion}/5</b>`:''}</span>`).join('');
+  document.getElementById('mm-cronica').value=notes.cronica||'';
+  document.getElementById('mm-rival-info').value=notes.rivalInfo||'';
+  document.getElementById('mm-contexto').value=notes.contexto||'';
+  document.getElementById('mm-ai-analysis').innerHTML='';
+  document.getElementById('match-modal').style.display='flex';
+  document.body.style.overflow='hidden';
+};
+window.saveMatchNotes=async function(){
+  if(!currentMatchId)return;syncStatus('loading','Guardando...');
+  const notes={...getMatchNotes()};
+  notes[currentMatchId]={cronica:document.getElementById('mm-cronica').value,rivalInfo:document.getElementById('mm-rival-info').value,contexto:document.getElementById('mm-contexto').value};
+  await setDoc(doc(db,'teams',currentTeam,'matchNotes','data'),notes);
+  syncStatus('ok','Notas guardadas');
+};
+window.generateMatchAnalysis=async function(){
+  if(!currentMatchId)return;
+  const m=getMatches().find(x=>x._id===currentMatchId);if(!m)return;
+  document.getElementById('mm-ai-analysis').innerHTML='<div class="ai-loading"><div class="ai-dot"></div><div class="ai-dot"></div><div class="ai-dot"></div><span>Analizando partido...</span></div>';
+  const cronica=document.getElementById('mm-cronica').value;
+  const rivalInfo=document.getElementById('mm-rival-info').value;
+  const contexto=document.getElementById('mm-contexto').value;
+  const gcCats=m.gcDesglose?Object.entries(m.gcDesglose).filter(([,v])=>v>0).map(([k,v])=>`${k}:${v}`).join(', '):'ninguno';
+  const topG=(m.players||[]).filter(p=>p.goles>0).map(p=>`${p.nombre}(${p.goles}G)`).join(', ')||'ninguno';
+  const analysis=await callAI(`Analiza este partido de fútbol base y da conclusiones útiles al entrenador (máximo 6 frases en español):
+Partido: vs ${m.rival} | Resultado: ${m.gf}-${m.gc} | Fecha: ${m.fecha}
+Goles marcados por: ${topG}
+Goles encajados por: ${gcCats}
+Crónica: ${cronica||'No disponible'}
+Info del rival: ${rivalInfo||'No disponible'}
+Contexto: ${contexto||'No disponible'}
+Da: 1) Qué funcionó, 2) Qué mejorar, 3) Info útil del rival para el partido de vuelta.`);
+  document.getElementById('mm-ai-analysis').innerHTML=`<div class="ai-bubble"><div class="ai-label"><i class="ti ti-sparkles" style="font-size:13px"></i> Análisis IA del partido</div>${analysis}</div>`;
 };
 
 // ASISTENCIA
 window.loadAttendanceUI=function(){
   const week=document.getElementById('att-week').value,players=getPlayers();
   if(!week||!players.length){document.getElementById('att-list').innerHTML='<div class="empty">Selecciona una semana y añade jugadores primero.</div>';return;}
-  currentWeek=week;
-  const saved=getAttendance();
-  localAttendance={};
-  localAttendance[week]={};
+  currentWeek=week;const saved=getAttendance();
+  localAttendance={};localAttendance[week]={};
   players.forEach(p=>{localAttendance[week][p._id]=(saved[week]&&saved[week][p._id])?{...saved[week][p._id]}:{L:'',X:'',V:''};});
-  renderAttendanceUI(week);
-  document.getElementById('att-save-wrap').style.display='block';
+  renderAttendanceUI(week);document.getElementById('att-save-wrap').style.display='block';
 };
 window.toggleDayLocal=function(week,pid,day){
-  const cycle=['','p','a','j'];
-  const cur=localAttendance[week][pid][day];
-  localAttendance[week][pid][day]=cycle[(cycle.indexOf(cur)+1)%cycle.length];
-  const dayLabel={L:'Lun',X:'Mié',V:'Vie'},stateLabel={p:'P',a:'A',j:'J','':'–'};
+  const cycle=['','p','a','j'];localAttendance[week][pid][day]=cycle[(cycle.indexOf(localAttendance[week][pid][day])+1)%cycle.length];
+  const dl={L:'Lun',X:'Mié',V:'Vie'},sl={p:'P',a:'A',j:'J','':'–'};
   const chip=document.getElementById('chip-'+pid+'-'+day);
-  if(chip){const v=localAttendance[week][pid][day];chip.className='att-chip '+v;chip.textContent=dayLabel[day]+' '+stateLabel[v];}
+  if(chip){const v=localAttendance[week][pid][day];chip.className='att-chip '+v;chip.textContent=dl[day]+' '+sl[v];}
 };
 window.saveAttendance=async function(){
   syncStatus('loading','Guardando...');
-  const att={...getAttendance(),...localAttendance};
-  await setDoc(doc(db,'teams',currentTeam,'attendance','data'),att);
+  await setDoc(doc(db,'teams',currentTeam,'attendance','data'),{...getAttendance(),...localAttendance});
   syncStatus('ok','Asistencia guardada');
 };
 function renderAttendanceUI(week){
   const players=getPlayers();
-  const dayLabel={L:'Lun',X:'Mié',V:'Vie'},stateLabel={p:'P',a:'A',j:'J','':'–'};
-  document.getElementById('att-list').innerHTML=`<div style="display:flex;gap:14px;margin-bottom:.75rem;flex-wrap:wrap">
-    <span style="font-size:12px;color:var(--text2);display:flex;align-items:center;gap:5px"><span class="dot dot-p"></span>Presente</span>
-    <span style="font-size:12px;color:var(--text2);display:flex;align-items:center;gap:5px"><span class="dot dot-a"></span>Ausente</span>
-    <span style="font-size:12px;color:var(--text2);display:flex;align-items:center;gap:5px"><span class="dot dot-j"></span>Justificado</span>
-  </div><div class="card">`+players.map(p=>{
+  const dl={L:'Lun',X:'Mié',V:'Vie'},sl={p:'P',a:'A',j:'J','':'–'};
+  document.getElementById('att-list').innerHTML=`<div style="display:flex;gap:14px;margin-bottom:.75rem;flex-wrap:wrap"><span style="font-size:12px;color:var(--text2);display:flex;align-items:center;gap:5px"><span class="dot dot-p"></span>Presente</span><span style="font-size:12px;color:var(--text2);display:flex;align-items:center;gap:5px"><span class="dot dot-a"></span>Ausente</span><span style="font-size:12px;color:var(--text2);display:flex;align-items:center;gap:5px"><span class="dot dot-j"></span>Justificado</span></div><div class="card">`+players.map(p=>{
     const d=localAttendance[week]&&localAttendance[week][p._id]?localAttendance[week][p._id]:{L:'',X:'',V:''};
-    return `<div class="att-player-row">
-      <div class="player-avatar" style="flex-shrink:0">${POS_INIT[p.pos]||'?'}</div>
-      <div style="flex:1;font-size:13px;font-weight:500">#${p.dorsal} ${p.nombre}</div>
-      <div class="att-chips">${['L','X','V'].map(dy=>`<span id="chip-${p._id}-${dy}" class="att-chip ${d[dy]}" onclick="toggleDayLocal('${week}','${p._id}','${dy}')">${dayLabel[dy]} ${stateLabel[d[dy]]}</span>`).join('')}</div>
-    </div>`;}).join('')+'</div>';
+    return `<div class="att-player-row"><div class="player-avatar" style="flex-shrink:0">${POS_INIT[p.pos]||'?'}</div><div style="flex:1;font-size:13px;font-weight:500">#${p.dorsal} ${p.nombre}</div><div class="att-chips">${['L','X','V'].map(dy=>`<span id="chip-${p._id}-${dy}" class="att-chip ${d[dy]}" onclick="toggleDayLocal('${week}','${p._id}','${dy}')">${dl[dy]} ${sl[d[dy]]}</span>`).join('')}</div></div>`;}).join('')+'</div>';
 }
 function renderAttHistorial(){
   const players=getPlayers(),att=getAttendance(),el=document.getElementById('att-historial-content');
   if(!players.length){el.innerHTML='<div class="empty"><i class="ti ti-calendar"></i>Sin jugadores.</div>';return;}
-  const activeWeeks=Object.entries(att).filter(([,data])=>Object.values(data).some(d=>Object.values(d).includes('p')));
-  if(!activeWeeks.length){el.innerHTML='<div class="empty"><i class="ti ti-calendar"></i>Sin semanas registradas todavía.</div>';return;}
-  const playerStats={};
-  players.forEach(p=>{playerStats[p._id]={nombre:p.nombre,dorsal:p.dorsal,pos:p.pos,present:0,total:0};});
-  activeWeeks.forEach(([,data])=>{players.forEach(p=>{const d=data[p._id];if(d){playerStats[p._id].total+=3;playerStats[p._id].present+=Object.values(d).filter(v=>v==='p'||v==='j').length;}});});
-  const sorted=Object.values(playerStats).sort((a,b)=>(b.total?b.present/b.total:0)-(a.total?a.present/a.total:0));
-  el.innerHTML=`<div class="card"><div class="card-title"><i class="ti ti-chart-bar"></i> Asistencia a entrenamientos</div><div style="font-size:12px;color:var(--text3);margin-bottom:.75rem">${activeWeeks.length} semanas registradas</div>${sorted.map(p=>{const pct=p.total?Math.round(p.present/p.total*100):0;const color=pct>=80?'#639922':pct>=50?'#EF9F27':'#E24B4A';return `<div class="bar-row"><span class="bar-label">#${p.dorsal} ${p.nombre}</span><div class="bar-track"><div class="bar-fill" style="width:${pct}%;background:${color}"></div></div><span class="bar-num" style="color:${color}">${pct}%</span></div>`;}).join('')}</div>`;
+  const aw=Object.entries(att).filter(([,d])=>Object.values(d).some(x=>Object.values(x).includes('p')));
+  if(!aw.length){el.innerHTML='<div class="empty"><i class="ti ti-calendar"></i>Sin semanas registradas todavía.</div>';return;}
+  const ps={};players.forEach(p=>{ps[p._id]={nombre:p.nombre,dorsal:p.dorsal,pos:p.pos,present:0,total:0};});
+  aw.forEach(([,d])=>{players.forEach(p=>{const x=d[p._id];if(x){ps[p._id].total+=3;ps[p._id].present+=Object.values(x).filter(v=>v==='p'||v==='j').length;}});});
+  const sorted=Object.values(ps).sort((a,b)=>(b.total?b.present/b.total:0)-(a.total?a.present/a.total:0));
+  el.innerHTML=`<div class="card"><div class="card-title"><i class="ti ti-chart-bar"></i> Asistencia a entrenamientos</div><div style="font-size:12px;color:var(--text3);margin-bottom:.75rem">${aw.length} semanas registradas</div>${sorted.map(p=>{const pct=p.total?Math.round(p.present/p.total*100):0;const color=pct>=80?'#639922':pct>=50?'#EF9F27':'#E24B4A';return `<div class="bar-row"><span class="bar-label">#${p.dorsal} ${p.nombre}</span><div class="bar-track"><div class="bar-fill" style="width:${pct}%;background:${color}"></div></div><span class="bar-num" style="color:${color}">${pct}%</span></div>`;}).join('')}</div>`;
 }
 
 // PARTIDOS
 function renderMatchPlayers(){
   const players=getPlayers(),el=document.getElementById('match-players');
   if(!players.length){el.innerHTML='<div class="empty">Añade jugadores primero.</div>';return;}
-  el.innerHTML=players.map(p=>`
-    <div class="playrow">
-      <span style="font-size:13px;font-weight:500;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${p.nombre}</span>
-      <select id="mr-${p._id}" style="font-size:11px;padding:3px 2px">${ROLES.map(r=>`<option>${r}</option>`).join('')}</select>
-      <input type="number" id="mm-${p._id}" min="0" max="90" placeholder="0" style="font-size:13px;padding:4px 5px;text-align:center">
-      <input type="number" id="mg-${p._id}" min="0" placeholder="0" style="font-size:13px;padding:4px 5px;text-align:center">
-      <input type="number" id="ma-${p._id}" min="0" placeholder="0" style="font-size:13px;padding:4px 5px;text-align:center">
-      <div class="val-row" id="mv-${p._id}">${[1,2,3,4,5].map(v=>`<span class="val-btn" onclick="setVal('${p._id}',${v})">${v}</span>`).join('')}</div>
-    </div>`).join('');
+  el.innerHTML=players.map(p=>`<div class="playrow"><span style="font-size:13px;font-weight:500;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${p.nombre}</span><select id="mr-${p._id}" style="font-size:11px;padding:3px 2px">${ROLES.map(r=>`<option>${r}</option>`).join('')}</select><input type="number" id="mm-${p._id}" min="0" max="90" placeholder="0" style="font-size:13px;padding:4px 5px;text-align:center"><input type="number" id="mg-${p._id}" min="0" placeholder="0" style="font-size:13px;padding:4px 5px;text-align:center"><input type="number" id="ma-${p._id}" min="0" placeholder="0" style="font-size:13px;padding:4px 5px;text-align:center"><div class="val-row" id="mv-${p._id}">${[1,2,3,4,5].map(v=>`<span class="val-btn" onclick="setVal('${p._id}',${v})">${v}</span>`).join('')}</div></div>`).join('');
 }
 window.setVal=function(pid,v){const btns=document.querySelectorAll('#mv-'+pid+' .val-btn');btns.forEach((b,i)=>{const was=b.className.includes('sel-'+(i+1));b.className='val-btn'+(!was&&i+1===v?' sel-'+v:'');});};
-function getVal(pid){const btns=document.querySelectorAll('#mv-'+pid+' .val-btn');for(let i=0;i<btns.length;i++) if(btns[i].className.includes('sel-')) return i+1;return null;}
-function renderGcEntry(){
-  document.getElementById('gc-entry').innerHTML=GC_CATS.map(g=>`
-    <div class="gc-group-title">${g.group}</div>
-    ${g.cats.map(c=>`<div class="gc-item"><span class="gc-label">${c}</span><span class="gc-btn" onclick="changeGc('${c}',-1)">−</span><span class="gc-count${(gcCounts[c]||0)>0?' active':''}" id="gcc-${c.replace(/[^a-zA-Z0-9]/g,'_')}">${gcCounts[c]||0}</span><span class="gc-btn" onclick="changeGc('${c}',1)">+</span></div>`).join('')}`).join('');
-}
-window.changeGc=function(cat,delta){
-  gcCounts[cat]=(gcCounts[cat]||0)+delta;if(gcCounts[cat]<0) gcCounts[cat]=0;
-  const el=document.getElementById('gcc-'+cat.replace(/[^a-zA-Z0-9]/g,'_'));
-  if(el){el.textContent=gcCounts[cat];el.className='gc-count'+(gcCounts[cat]>0?' active':'');}
-  const total=Object.values(gcCounts).reduce((s,v)=>s+v,0);
-  const inp=document.getElementById('m-gc');if(inp&&parseInt(inp.value||0)<total) inp.value=total;
-};
+function getVal(pid){const btns=document.querySelectorAll('#mv-'+pid+' .val-btn');for(let i=0;i<btns.length;i++) if(btns[i].className.includes('sel-'))return i+1;return null;}
+function renderGcEntry(){document.getElementById('gc-entry').innerHTML=GC_CATS.map(g=>`<div class="gc-group-title">${g.group}</div>${g.cats.map(c=>`<div class="gc-item"><span class="gc-label">${c}</span><span class="gc-btn" onclick="changeGc('${c}',-1)">−</span><span class="gc-count${(gcCounts[c]||0)>0?' active':''}" id="gcc-${c.replace(/[^a-zA-Z0-9]/g,'_')}">${gcCounts[c]||0}</span><span class="gc-btn" onclick="changeGc('${c}',1)">+</span></div>`).join('')}`).join('');}
+window.changeGc=function(cat,delta){gcCounts[cat]=(gcCounts[cat]||0)+delta;if(gcCounts[cat]<0)gcCounts[cat]=0;const el=document.getElementById('gcc-'+cat.replace(/[^a-zA-Z0-9]/g,'_'));if(el){el.textContent=gcCounts[cat];el.className='gc-count'+(gcCounts[cat]>0?' active':'');}const total=Object.values(gcCounts).reduce((s,v)=>s+v,0);const inp=document.getElementById('m-gc');if(inp&&parseInt(inp.value||0)<total)inp.value=total;};
 window.saveMatch=async function(){
   const rival=document.getElementById('m-rival').value.trim(),fecha=document.getElementById('m-fecha').value;
   if(!rival||!fecha){alert('Indica rival y fecha.');return;}
   const gf=parseInt(document.getElementById('m-gf').value)||0,gc=parseInt(document.getElementById('m-gc').value)||0;
   const players=getPlayers();
-  const playerData=players.map(p=>({id:p._id,nombre:p.nombre,dorsal:p.dorsal,pos:p.pos,rol:document.getElementById('mr-'+p._id).value,minutos:parseInt(document.getElementById('mm-'+p._id).value)||0,goles:parseInt(document.getElementById('mg-'+p._id).value)||0,asistencias:parseInt(document.getElementById('ma-'+p._id).value)||0,valoracion:getVal(p._id)}));
+  const pd=players.map(p=>({id:p._id,nombre:p.nombre,dorsal:p.dorsal,pos:p.pos,rol:document.getElementById('mr-'+p._id).value,minutos:parseInt(document.getElementById('mm-'+p._id).value)||0,goles:parseInt(document.getElementById('mg-'+p._id).value)||0,asistencias:parseInt(document.getElementById('ma-'+p._id).value)||0,valoracion:getVal(p._id)}));
   syncStatus('loading','Guardando...');
-  await addDoc(teamCol('matches'),{rival,fecha,gf,gc,gcDesglose:{...gcCounts},players:playerData,ts:Date.now()});
+  await addDoc(teamCol('matches'),{rival,fecha,gf,gc,gcDesglose:{...gcCounts},players:pd,ts:Date.now()});
   ['m-rival','m-fecha','m-gf','m-gc'].forEach(id=>document.getElementById(id).value='');
   gcCounts={};renderGcEntry();renderMatchPlayers();alert('Partido guardado.');
 };
-window.deleteMatch=async function(id){if(!confirm('¿Borrar este partido?')) return;await deleteDoc(teamDoc('matches',id));};
+window.deleteMatch=async function(id,e){if(e)e.stopPropagation();if(!confirm('¿Borrar este partido?'))return;await deleteDoc(teamDoc('matches',id));};
 function renderHistorial(){
   const matches=getMatches(),el=document.getElementById('historial-list');
   if(!matches.length){el.innerHTML='<div class="empty"><i class="ti ti-ball-football"></i>Sin partidos registrados.</div>';return;}
+  const notes=getMatchNotes();
   el.innerHTML=matches.map(m=>{
     const gcCats=m.gcDesglose?Object.entries(m.gcDesglose).filter(([,v])=>v>0).map(([k,v])=>`${k} (${v})`).join(', '):'';
     const result=m.gf>m.gc?'V':m.gf===m.gc?'E':'D';
     const rc=result==='V'?'var(--green-text)':result==='D'?'var(--red-text)':'var(--text2)';
     const rb=result==='V'?'var(--green-bg)':result==='D'?'var(--red-bg)':'var(--bg3)';
-    return `<div class="match-card"><div class="match-header"><div><div class="match-rival">vs ${m.rival}</div><div class="match-date"><i class="ti ti-calendar" style="font-size:12px;vertical-align:-1px"></i> ${m.fecha}</div></div><div style="display:flex;align-items:center;gap:8px"><span style="font-size:11px;font-weight:500;padding:3px 8px;border-radius:20px;background:${rb};color:${rc}">${result}</span><span class="score-pill">${m.gf} – ${m.gc}</span><button class="btn btn-danger btn-sm" onclick="deleteMatch('${m._id}')"><i class="ti ti-trash" style="font-size:13px"></i></button></div></div>${gcCats?`<div style="font-size:12px;color:var(--text2);margin-bottom:.5rem;padding:6px 8px;background:var(--bg3);border-radius:var(--radius)"><i class="ti ti-shield" style="font-size:12px"></i> ${gcCats}</div>`:''}<div style="font-size:12px;color:var(--text2);display:flex;flex-wrap:wrap;gap:4px">${(m.players||[]).filter(p=>p.rol==='Titular'||p.rol==='Suplente').map(p=>`<span style="display:inline-flex;align-items:center;gap:3px;margin:2px 0"><span class="badge ${ROLE_CLASS[p.rol]||'badge-X'}">${p.rol==='Titular'?'T':'S'}</span><span style="color:var(--text)">${p.nombre}</span>${p.goles?`<span style="color:var(--green-text)"> ⚽${p.goles}</span>`:''}${p.asistencias?` 🎯${p.asistencias}`:''}${p.valoracion?` <b style="color:var(--text)">${p.valoracion}/5</b>`:''}</span>`).join('')}</div></div>`;}).join('');
+    const hasN=notes[m._id]&&(notes[m._id].cronica||notes[m._id].rivalInfo);
+    return `<div class="match-card" onclick="openMatchModal('${m._id}')">
+      <div class="match-header">
+        <div><div class="match-rival">vs ${m.rival}${hasN?' 📝':''}</div><div class="match-date"><i class="ti ti-calendar" style="font-size:12px;vertical-align:-1px"></i> ${m.fecha}</div></div>
+        <div style="display:flex;align-items:center;gap:8px">
+          <span style="font-size:11px;font-weight:500;padding:3px 8px;border-radius:20px;background:${rb};color:${rc}">${result}</span>
+          <span class="score-pill">${m.gf} – ${m.gc}</span>
+          <button class="btn btn-danger btn-sm" onclick="deleteMatch('${m._id}',event)"><i class="ti ti-trash" style="font-size:13px"></i></button>
+        </div>
+      </div>
+      ${gcCats?`<div style="font-size:12px;color:var(--text2);margin-bottom:.5rem;padding:5px 8px;background:var(--bg3);border-radius:var(--radius)"><i class="ti ti-shield" style="font-size:12px"></i> ${gcCats}</div>`:''}
+      <div style="font-size:12px;color:var(--text2);display:flex;flex-wrap:wrap;gap:4px">${(m.players||[]).filter(p=>p.rol==='Titular'||p.rol==='Suplente').map(p=>`<span style="display:inline-flex;align-items:center;gap:3px;margin:2px 0"><span class="badge ${ROLE_CLASS[p.rol]||'badge-X'}">${p.rol==='Titular'?'T':'S'}</span><span style="color:var(--text)">${p.nombre}</span>${p.goles?`<span style="color:var(--green-text)"> ⚽${p.goles}</span>`:''}${p.asistencias?` 🎯${p.asistencias}`:''}${p.valoracion?` <b style="color:var(--text)">${p.valoracion}/5</b>`:''}</span>`).join('')}</div>
+      <div style="font-size:11px;color:var(--text3);margin-top:5px">Toca para ver detalle y añadir crónica →</div>
+    </div>`;}).join('');
 }
 
 // STATS
 function renderStats(){
   const players=getPlayers(),matches=getMatches(),att=getAttendance(),el=document.getElementById('stats-content');
   if(!players.length){el.innerHTML='<div class="empty"><i class="ti ti-chart-bar"></i>Sin datos todavía.</div>';return;}
-  const stats={};
-  players.forEach(p=>{stats[p._id]={nombre:p.nombre,dorsal:p.dorsal,pos:p.pos,goles:0,asistencias:0,partidos:0,minutos:0,titularidades:0,suplencias:0,desconvocados:0,desconvReason:{},vals:[]};});
+  const stats={};players.forEach(p=>{stats[p._id]={nombre:p.nombre,dorsal:p.dorsal,pos:p.pos,goles:0,asistencias:0,partidos:0,minutos:0,titularidades:0,suplencias:0,desconvocados:0,desconvReason:{},vals:[]};});
   const gcTotal={};ALL_CATS.forEach(c=>{gcTotal[c]=0;});
-  let totalGF=0,totalGC=0,wins=0,draws=0,losses=0;
-  const resultsByMatch=[];
-  matches.forEach(m=>{
-    totalGF+=m.gf;totalGC+=m.gc;
-    if(m.gf>m.gc) wins++;else if(m.gf===m.gc) draws++;else losses++;
-    resultsByMatch.push({fecha:m.fecha,gf:m.gf,gc:m.gc});
-    if(m.gcDesglose) Object.entries(m.gcDesglose).forEach(([k,v])=>{if(gcTotal[k]!==undefined) gcTotal[k]+=v;});
-    (m.players||[]).forEach(mp=>{
-      if(!stats[mp.id]) return;
-      if(mp.rol==='Titular'||mp.rol==='Suplente'){stats[mp.id].partidos++;stats[mp.id].minutos+=mp.minutos||0;if(mp.rol==='Titular')stats[mp.id].titularidades++;else stats[mp.id].suplencias++;}
-      if(DESCONVOCADO_ROLES.includes(mp.rol)){stats[mp.id].desconvocados++;stats[mp.id].desconvReason[mp.rol]=(stats[mp.id].desconvReason[mp.rol]||0)+1;}
-      stats[mp.id].goles+=mp.goles||0;stats[mp.id].asistencias+=mp.asistencias||0;
-      if(mp.valoracion) stats[mp.id].vals.push(mp.valoracion);
-    });
-  });
-  const activeWeeks=Object.entries(att).filter(([,data])=>Object.values(data).some(d=>Object.values(d).includes('p')));
-  const attStats={};
-  players.forEach(p=>{attStats[p._id]={present:0,total:0};});
-  activeWeeks.forEach(([,data])=>{players.forEach(p=>{const d=data[p._id];if(d){attStats[p._id].total+=3;attStats[p._id].present+=Object.values(d).filter(v=>v==='p'||v==='j').length;}});});
-  const gcFiltered=Object.entries(gcTotal).filter(([,v])=>v>0).sort((a,b)=>b[1]-a[1]);
-  const maxGc=Math.max(...gcFiltered.map(([,v])=>v),1);
-  const totalGcReg=gcFiltered.reduce((s,[,v])=>s+v,0);
-
-  function buildDonut(data,total){
-    if(!total) return '<div class="empty" style="padding:1rem">Sin goles registrados aún.</div>';
-    const r=60,cx=75,cy=75,circ=2*Math.PI*r;let offset=0;
-    const slices=data.map(([cat,n],i)=>{const pct=n/total,dash=pct*circ,gap=circ-dash;const s=`<circle cx="${cx}" cy="${cy}" r="${r}" fill="none" stroke="${DONUT_COLORS[i%DONUT_COLORS.length]}" stroke-width="22" stroke-dasharray="${dash} ${gap}" stroke-dashoffset="${-offset}" transform="rotate(-90 ${cx} ${cy})"/>`;offset+=dash;return s;}).join('');
-    const legend=data.slice(0,8).map(([cat,n],i)=>`<div class="donut-leg-item"><span class="donut-dot" style="background:${DONUT_COLORS[i%DONUT_COLORS.length]}"></span><span style="flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${cat}</span><b style="margin-left:4px;color:var(--text)">${n}</b></div>`).join('');
-    return `<div class="donut-wrap"><svg width="150" height="150" viewBox="0 0 150 150" style="flex-shrink:0"><circle cx="75" cy="75" r="60" fill="none" stroke="var(--bg3)" stroke-width="22"/>${slices}<text x="75" y="70" text-anchor="middle" font-size="22" font-weight="500" fill="var(--text)">${total}</text><text x="75" y="88" text-anchor="middle" font-size="11" fill="var(--text3)">goles</text></svg><div class="donut-legend">${legend}</div></div>`;
-  }
-  function buildGolesChart(){
-    const last=resultsByMatch.slice(-8);if(!last.length) return '';
-    const maxG=Math.max(...last.map(m=>Math.max(m.gf,m.gc)),1);
-    const w=280,h=80,pad=8,barW=Math.floor((w-pad*2)/last.length)-4;
-    const bars=last.map((m,i)=>{const x=pad+i*(barW+4),hGF=Math.round((m.gf/maxG)*(h-20)),hGC=Math.round((m.gc/maxG)*(h-20));return `<rect x="${x}" y="${h-hGF-10}" width="${barW/2-1}" height="${hGF}" rx="2" fill="#639922" opacity=".85"/><rect x="${x+barW/2}" y="${h-hGC-10}" width="${barW/2-1}" height="${hGC}" rx="2" fill="#E24B4A" opacity=".85"/><text x="${x+barW/2}" y="${h}" text-anchor="middle" font-size="8" fill="var(--text3)">${m.fecha?m.fecha.slice(5):''}</text>`;}).join('');
-    return `<div style="margin-bottom:.75rem"><div style="display:flex;gap:12px;margin-bottom:8px;font-size:12px;color:var(--text2)"><span><span style="display:inline-block;width:10px;height:10px;background:#639922;border-radius:2px;margin-right:4px;vertical-align:middle"></span>A favor</span><span><span style="display:inline-block;width:10px;height:10px;background:#E24B4A;border-radius:2px;margin-right:4px;vertical-align:middle"></span>En contra</span></div><svg width="100%" viewBox="0 0 ${w} ${h+4}" style="overflow:visible">${bars}</svg></div>`;
-  }
-  function buildDesconvChart(){
-    const withD=Object.values(stats).filter(p=>p.desconvocados>0).sort((a,b)=>b.desconvocados-a.desconvocados).slice(0,10);
-    if(!withD.length) return '';
-    const maxD=Math.max(...withD.map(p=>p.desconvocados),1);
-    const svgW=300,barH=18,gap=6,padL=100,padR=40,svgH=withD.length*(barH+gap)+20;
-    const rows=withD.map((p,i)=>{
-      const y=20+i*(barH+gap);let xOff=padL;
-      const bars=DESCONVOCADO_ROLES.map(rol=>{const count=p.desconvReason[rol]||0;if(!count) return '';const w=Math.round((count/maxD)*(svgW-padL-padR));const rect=`<rect x="${xOff}" y="${y}" width="${w}" height="${barH}" rx="2" fill="${DESCONVOCADO_COLORS[rol]}" opacity=".9"/>`;const txt=count>0&&w>16?`<text x="${xOff+w/2}" y="${y+barH/2+4}" text-anchor="middle" font-size="10" fill="#fff" font-weight="500">${count}</text>`:'';xOff+=w;return rect+txt;}).join('');
-      return `<text x="${padL-6}" y="${y+barH/2+4}" text-anchor="end" font-size="11" fill="var(--text2)">${p.nombre}</text>${bars}`;
-    }).join('');
-    const legend=DESCONVOCADO_ROLES.map(rol=>`<span style="display:inline-flex;align-items:center;gap:4px;font-size:11px;color:var(--text2);margin-right:8px"><span style="width:10px;height:10px;border-radius:2px;background:${DESCONVOCADO_COLORS[rol]};display:inline-block"></span>${rol}</span>`).join('');
-    return `<div class="card" style="margin-top:1rem"><div class="card-title"><i class="ti ti-user-x"></i> Desconvocatorias por motivo</div><div style="flex-wrap:wrap;display:flex;gap:4px;margin-bottom:.75rem">${legend}</div><svg width="100%" viewBox="0 0 ${svgW} ${svgH}" style="overflow:visible">${rows}</svg></div>`;
-  }
-  const topScorers=Object.values(stats).filter(p=>p.goles>0).sort((a,b)=>b.goles-a.goles).slice(0,5);
-  const maxGoles=Math.max(...topScorers.map(p=>p.goles),1);
-  const topAsist=Object.values(stats).filter(p=>p.asistencias>0).sort((a,b)=>b.asistencias-a.asistencias).slice(0,5);
-  const maxAsist=Math.max(...topAsist.map(p=>p.asistencias),1);
-
+  let totalGF=0,totalGC=0,wins=0,draws=0,losses=0;const rbm=[];
+  matches.forEach(m=>{totalGF+=m.gf;totalGC+=m.gc;if(m.gf>m.gc)wins++;else if(m.gf===m.gc)draws++;else losses++;rbm.push({fecha:m.fecha,gf:m.gf,gc:m.gc});if(m.gcDesglose)Object.entries(m.gcDesglose).forEach(([k,v])=>{if(gcTotal[k]!==undefined)gcTotal[k]+=v;});(m.players||[]).forEach(mp=>{if(!stats[mp.id])return;if(mp.rol==='Titular'||mp.rol==='Suplente'){stats[mp.id].partidos++;stats[mp.id].minutos+=mp.minutos||0;if(mp.rol==='Titular')stats[mp.id].titularidades++;else stats[mp.id].suplencias++;}if(DESCONVOCADO_ROLES.includes(mp.rol)){stats[mp.id].desconvocados++;stats[mp.id].desconvReason[mp.rol]=(stats[mp.id].desconvReason[mp.rol]||0)+1;}stats[mp.id].goles+=mp.goles||0;stats[mp.id].asistencias+=mp.asistencias||0;if(mp.valoracion)stats[mp.id].vals.push(mp.valoracion);});});
+  const aw=Object.entries(att).filter(([,d])=>Object.values(d).some(x=>Object.values(x).includes('p')));
+  const as2={};players.forEach(p=>{as2[p._id]={present:0,total:0};});
+  aw.forEach(([,d])=>{players.forEach(p=>{const x=d[p._id];if(x){as2[p._id].total+=3;as2[p._id].present+=Object.values(x).filter(v=>v==='p'||v==='j').length;}});});
+  const gcF=Object.entries(gcTotal).filter(([,v])=>v>0).sort((a,b)=>b[1]-a[1]);
+  const maxGc=Math.max(...gcF.map(([,v])=>v),1),totalGcR=gcF.reduce((s,[,v])=>s+v,0);
+  function bDonut(data,total){if(!total)return'<div class="empty" style="padding:1rem">Sin datos.</div>';const r=60,cx=75,cy=75,circ=2*Math.PI*r;let off=0;const sl=data.map(([,n],i)=>{const dash=(n/total)*circ;const s=`<circle cx="${cx}" cy="${cy}" r="${r}" fill="none" stroke="${DONUT_COLORS[i%DONUT_COLORS.length]}" stroke-width="22" stroke-dasharray="${dash} ${circ-dash}" stroke-dashoffset="${-off}" transform="rotate(-90 ${cx} ${cy})"/>`;off+=dash;return s;}).join('');const leg=data.slice(0,8).map(([cat,n],i)=>`<div class="donut-leg-item"><span class="donut-dot" style="background:${DONUT_COLORS[i%DONUT_COLORS.length]}"></span><span style="flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${cat}</span><b style="margin-left:4px">${n}</b></div>`).join('');return `<div class="donut-wrap"><svg width="150" height="150" viewBox="0 0 150 150" style="flex-shrink:0"><circle cx="75" cy="75" r="60" fill="none" stroke="var(--bg3)" stroke-width="22"/>${sl}<text x="75" y="70" text-anchor="middle" font-size="22" font-weight="500" fill="var(--text)">${total}</text><text x="75" y="88" text-anchor="middle" font-size="11" fill="var(--text3)">goles</text></svg><div class="donut-legend">${leg}</div></div>`;}
+  function bGolesChart(){const last=rbm.slice(-8);if(!last.length)return'';const maxG=Math.max(...last.map(m=>Math.max(m.gf,m.gc)),1);const w=280,h=80,pad=8,bW=Math.floor((w-pad*2)/last.length)-4;const bars=last.map((m,i)=>{const x=pad+i*(bW+4),hF=Math.round((m.gf/maxG)*(h-20)),hC=Math.round((m.gc/maxG)*(h-20));return `<rect x="${x}" y="${h-hF-10}" width="${bW/2-1}" height="${hF}" rx="2" fill="#639922" opacity=".85"/><rect x="${x+bW/2}" y="${h-hC-10}" width="${bW/2-1}" height="${hC}" rx="2" fill="#E24B4A" opacity=".85"/><text x="${x+bW/2}" y="${h}" text-anchor="middle" font-size="8" fill="var(--text3)">${m.fecha?m.fecha.slice(5):''}</text>`;}).join('');return `<div><div style="display:flex;gap:12px;margin-bottom:8px;font-size:12px;color:var(--text2)"><span><span style="display:inline-block;width:10px;height:10px;background:#639922;border-radius:2px;margin-right:4px;vertical-align:middle"></span>A favor</span><span><span style="display:inline-block;width:10px;height:10px;background:#E24B4A;border-radius:2px;margin-right:4px;vertical-align:middle"></span>En contra</span></div><svg width="100%" viewBox="0 0 ${w} ${h+4}" style="overflow:visible">${bars}</svg></div>`;}
+  function bDesconv(){const wd=Object.values(stats).filter(p=>p.desconvocados>0).sort((a,b)=>b.desconvocados-a.desconvocados).slice(0,10);if(!wd.length)return'';const maxD=Math.max(...wd.map(p=>p.desconvocados),1);const sW=300,bH=18,gap=6,pL=100,pR=40,sH=wd.length*(bH+gap)+20;const rows=wd.map((p,i)=>{const y=20+i*(bH+gap);let xO=pL;const bars=DESCONVOCADO_ROLES.map(rol=>{const count=p.desconvReason[rol]||0;if(!count)return'';const w=Math.round((count/maxD)*(sW-pL-pR));xO+=w;return `<rect x="${xO-w}" y="${y}" width="${w}" height="${bH}" rx="2" fill="${DESCONVOCADO_COLORS[rol]}" opacity=".9"/>${count>0&&w>16?`<text x="${xO-w/2}" y="${y+bH/2+4}" text-anchor="middle" font-size="10" fill="#fff" font-weight="500">${count}</text>`:''}`}).join('');return `<text x="${pL-6}" y="${y+bH/2+4}" text-anchor="end" font-size="11" fill="var(--text2)">${p.nombre}</text>${bars}`;}).join('');const leg=DESCONVOCADO_ROLES.map(rol=>`<span style="display:inline-flex;align-items:center;gap:4px;font-size:11px;color:var(--text2);margin-right:8px"><span style="width:10px;height:10px;border-radius:2px;background:${DESCONVOCADO_COLORS[rol]};display:inline-block"></span>${rol}</span>`).join('');return `<div class="card" style="margin-top:1rem"><div class="card-title"><i class="ti ti-user-x"></i> Desconvocatorias por motivo</div><div style="display:flex;flex-wrap:wrap;gap:4px;margin-bottom:.75rem">${leg}</div><svg width="100%" viewBox="0 0 ${sW} ${sH}" style="overflow:visible">${rows}</svg></div>`;}
+  const tS=Object.values(stats).filter(p=>p.goles>0).sort((a,b)=>b.goles-a.goles).slice(0,5);
+  const mG=Math.max(...tS.map(p=>p.goles),1);
+  const tA=Object.values(stats).filter(p=>p.asistencias>0).sort((a,b)=>b.asistencias-a.asistencias).slice(0,5);
+  const mA=Math.max(...tA.map(p=>p.asistencias),1);
   el.innerHTML=`
     <div class="stat-grid">
       <div class="stat-card"><div class="stat-num">${matches.length}</div><div class="stat-lbl">Partidos jugados</div></div>
@@ -958,70 +826,50 @@ function renderStats(){
       <div class="stat-card"><div class="stat-num">${matches.length?Math.round(totalGF/matches.length*10)/10:0}</div><div class="stat-lbl">Media GF/partido</div></div>
       <div class="stat-card"><div class="stat-num">${matches.length?Math.round(totalGC/matches.length*10)/10:0}</div><div class="stat-lbl">Media GC/partido</div></div>
     </div>
-    ${matches.length>1?`<div class="card"><div class="card-title"><i class="ti ti-chart-bar"></i> Evolución de goles</div>${buildGolesChart()}</div>`:''}
-    ${gcFiltered.length?`<div class="card"><div class="card-title"><i class="ti ti-shield"></i> Cómo nos marcan</div>${buildDonut(gcFiltered,totalGcReg)}<div style="margin-top:.75rem">${gcFiltered.map(([cat,n])=>`<div class="bar-row"><span class="bar-label">${cat}</span><div class="bar-track"><div class="bar-fill" style="width:${Math.round(n/maxGc*100)}%"></div></div><span class="bar-num">${n}</span></div>`).join('')}</div></div>`:''}
-    ${topScorers.length?`<div class="card"><div class="card-title"><i class="ti ti-award"></i> Top goleadores</div>${topScorers.map(p=>`<div class="bar-row"><span class="bar-label">${p.nombre}</span><div class="bar-track"><div class="bar-fill" style="width:${Math.round(p.goles/maxGoles*100)}%;background:#639922"></div></div><span class="bar-num">⚽ ${p.goles}</span></div>`).join('')}</div>`:''}
-    ${topAsist.length?`<div class="card"><div class="card-title"><i class="ti ti-arrow-forward-up"></i> Top asistentes</div>${topAsist.map(p=>`<div class="bar-row"><span class="bar-label">${p.nombre}</span><div class="bar-track"><div class="bar-fill" style="width:${Math.round(p.asistencias/maxAsist*100)}%;background:#378ADD"></div></div><span class="bar-num">🎯 ${p.asistencias}</span></div>`).join('')}</div>`:''}
-    <div class="card"><div class="card-title"><i class="ti ti-users"></i> Jugador por jugador</div>
-    ${Object.values(stats).sort((a,b)=>b.goles-a.goles).map(p=>{
-      const avgVal=p.vals.length?Math.round(p.vals.reduce((s,v)=>s+v,0)/p.vals.length*10)/10:null;
-      const att2=attStats[p._id];const attPct=att2&&att2.total?Math.round(att2.present/att2.total*100):null;
-      return `<div class="player-item"><div class="player-avatar">${POS_INIT[p.pos]||'?'}</div><div class="player-info" style="cursor:default"><div class="player-name">#${p.dorsal} ${p.nombre}</div><div class="player-meta" style="font-size:12px;color:var(--text2)">${p.partidos} partidos · ${p.titularidades} T · ${p.suplencias} S · ${p.desconvocados} D · ${p.minutos} min</div><div style="font-size:12px;margin-top:3px;display:flex;gap:10px;flex-wrap:wrap;color:var(--text2)"><span style="color:var(--green-text)">⚽ ${p.goles}</span><span>🎯 ${p.asistencias}</span>${avgVal!==null?`<span>Val <b style="color:var(--text)">${avgVal}/5</b></span>`:''}${attPct!==null?`<span>Asist entrenos <b style="color:var(--text)">${attPct}%</b></span>`:''}</div></div></div>`;}).join('')}
-    </div>
-    ${buildDesconvChart()}`;
+    ${matches.length>1?`<div class="card"><div class="card-title"><i class="ti ti-chart-bar"></i> Evolución de goles</div>${bGolesChart()}</div>`:''}
+    ${gcF.length?`<div class="card"><div class="card-title"><i class="ti ti-shield"></i> Cómo nos marcan</div>${bDonut(gcF,totalGcR)}<div style="margin-top:.75rem">${gcF.map(([cat,n])=>`<div class="bar-row"><span class="bar-label">${cat}</span><div class="bar-track"><div class="bar-fill" style="width:${Math.round(n/maxGc*100)}%"></div></div><span class="bar-num">${n}</span></div>`).join('')}</div></div>`:''}
+    ${tS.length?`<div class="card"><div class="card-title"><i class="ti ti-award"></i> Top goleadores</div>${tS.map(p=>`<div class="bar-row"><span class="bar-label">${p.nombre}</span><div class="bar-track"><div class="bar-fill" style="width:${Math.round(p.goles/mG*100)}%;background:#639922"></div></div><span class="bar-num">⚽ ${p.goles}</span></div>`).join('')}</div>`:''}
+    ${tA.length?`<div class="card"><div class="card-title"><i class="ti ti-arrow-forward-up"></i> Top asistentes</div>${tA.map(p=>`<div class="bar-row"><span class="bar-label">${p.nombre}</span><div class="bar-track"><div class="bar-fill" style="width:${Math.round(p.asistencias/mA*100)}%;background:#378ADD"></div></div><span class="bar-num">🎯 ${p.asistencias}</span></div>`).join('')}</div>`:''}
+    <div class="card"><div class="card-title"><i class="ti ti-users"></i> Jugador por jugador</div>${Object.values(stats).sort((a,b)=>b.goles-a.goles).map(p=>{const av=p.vals.length?Math.round(p.vals.reduce((s,v)=>s+v,0)/p.vals.length*10)/10:null;const a2=as2[p._id];const ap=a2&&a2.total?Math.round(a2.present/a2.total*100):null;return `<div class="player-item"><div class="player-avatar">${POS_INIT[p.pos]||'?'}</div><div class="player-info" style="cursor:default"><div class="player-name">#${p.dorsal} ${p.nombre}</div><div class="player-meta" style="font-size:12px;color:var(--text2)">${p.partidos} partidos · ${p.titularidades} T · ${p.suplencias} S · ${p.desconvocados} D · ${p.minutos} min</div><div style="font-size:12px;margin-top:3px;display:flex;gap:10px;flex-wrap:wrap;color:var(--text2)"><span style="color:var(--green-text)">⚽ ${p.goles}</span><span>🎯 ${p.asistencias}</span>${av!==null?`<span>Val <b>${av}/5</b></span>`:''}${ap!==null?`<span>Asist <b>${ap}%</b></span>`:''}</div></div></div>`;}).join('')}</div>
+    ${bDesconv()}`;
 }
 
-// OBJETIVOS con IA
+// OBJETIVOS
 window.selectPrio=function(p){selectedPrio=p;['Alta','Media','Baja'].forEach(x=>{const b=document.getElementById('pbtn-'+x.toLowerCase());b.className='btn prio-btn'+(p===x?' sel-'+x.toLowerCase():'');});};
-window.addObjetivo=async function(){
-  const titulo=document.getElementById('obj-titulo').value.trim();if(!titulo) return;
-  syncStatus('loading','Guardando...');
-  await addDoc(teamCol('objetivos'),{titulo,nota:document.getElementById('obj-nota').value.trim(),prioridad:selectedPrio,done:false,ts:Date.now()});
-  document.getElementById('obj-titulo').value='';document.getElementById('obj-nota').value='';
-};
+window.addObjetivo=async function(){const t=document.getElementById('obj-titulo').value.trim();if(!t)return;syncStatus('loading','Guardando...');await addDoc(teamCol('objetivos'),{titulo:t,nota:document.getElementById('obj-nota').value.trim(),prioridad:selectedPrio,done:false,ts:Date.now()});document.getElementById('obj-titulo').value='';document.getElementById('obj-nota').value='';};
 window.toggleObjetivo=async function(id,done){await updateDoc(teamDoc('objetivos',id),{done:!done});};
 window.deleteObjetivo=async function(id){await deleteDoc(teamDoc('objetivos',id));};
-window.addSuggestionAsGoal=async function(text,prio){
-  syncStatus('loading','Guardando...');
-  await addDoc(teamCol('objetivos'),{titulo:text,nota:'Sugerencia generada por IA',prioridad:prio,done:false,ts:Date.now()});
-  alert('Objetivo añadido.');
-};
+window.addSuggestionAsGoal=async function(text,prio){syncStatus('loading','Guardando...');await addDoc(teamCol('objetivos'),{titulo:text,nota:'Sugerencia IA basada en datos recientes',prioridad:prio,done:false,ts:Date.now()});alert('Objetivo añadido.');};
 
 async function generateObjSuggestions(){
-  const el=document.getElementById('obj-ai-suggestions');
-  const matches=getMatches();const players=getPlayers();
-  if(matches.length<3){el.innerHTML='<div style="font-size:12px;color:var(--text3);padding:.5rem 0;text-align:center">Necesitas al menos 3 partidos para recibir sugerencias IA.</div>';return;}
-  el.innerHTML='<div class="ai-loading"><div class="ai-dot"></div><div class="ai-dot"></div><div class="ai-dot"></div><span>Analizando la temporada...</span></div>';
-  const gcTotal={};ALL_CATS.forEach(c=>{gcTotal[c]=0;});
-  let totalGF=0,totalGC=0,wins=0;
-  matches.forEach(m=>{totalGF+=m.gf;totalGC+=m.gc;if(m.gf>m.gc)wins++;if(m.gcDesglose)Object.entries(m.gcDesglose).forEach(([k,v])=>{if(gcTotal[k]!==undefined)gcTotal[k]+=v;});});
-  const topGc=Object.entries(gcTotal).filter(([,v])=>v>0).sort((a,b)=>b[1]-a[1]).slice(0,3).map(([k,v])=>`${k}(${v})`).join(', ');
-  const pStats={};players.forEach(p=>{pStats[p._id]={nombre:p.nombre,goles:0,asistencias:0,partidos:0,vals:[]};});
-  matches.forEach(m=>{(m.players||[]).forEach(mp=>{if(!pStats[mp.id]) return;if(mp.rol==='Titular'||mp.rol==='Suplente') pStats[mp.id].partidos++;pStats[mp.id].goles+=mp.goles||0;pStats[mp.id].asistencias+=mp.asistencias||0;if(mp.valoracion)pStats[mp.id].vals.push(mp.valoracion);});});
-  const decliningPlayers=Object.values(pStats).filter(p=>p.vals.length>=4).filter(p=>{const half=Math.floor(p.vals.length/2);const first=p.vals.slice(0,half).reduce((s,v)=>s+v,0)/half;const last=p.vals.slice(-half).reduce((s,v)=>s+v,0)/half;return last<first-0.5;}).map(p=>p.nombre).slice(0,2);
-  const prompt=`Eres un analista de fútbol base. Basándote en estos datos de la temporada, genera EXACTAMENTE 3 sugerencias de objetivos a trabajar. Devuelve SOLO JSON válido con este formato exacto:
+  const el=document.getElementById('obj-ai-suggestions');if(!el)return;
+  const matches=getMatches();
+  if(matches.length<3){el.innerHTML='<div style="font-size:12px;color:var(--text3);text-align:center;padding:.5rem 0">Las sugerencias IA estarán disponibles con al menos 3 partidos.</div>';return;}
+  if(suggestionsLoaded[currentTeam])return;
+  suggestionsLoaded[currentTeam]=true;
+  el.innerHTML='<div class="card"><div class="card-title"><i class="ti ti-sparkles" style="color:#7c4dff"></i> Sugerencias IA — últimos partidos</div><div class="ai-loading"><div class="ai-dot"></div><div class="ai-dot"></div><div class="ai-dot"></div><span>Analizando datos...</span></div></div>';
+  const last5=matches.slice(0,5);
+  const gcT={};ALL_CATS.forEach(c=>{gcT[c]=0;});
+  let gf=0,gc=0,wins=0;
+  last5.forEach(m=>{gf+=m.gf;gc+=m.gc;if(m.gf>m.gc)wins++;if(m.gcDesglose)Object.entries(m.gcDesglose).forEach(([k,v])=>{if(gcT[k]!==undefined)gcT[k]+=v;});});
+  const topGc=Object.entries(gcT).filter(([,v])=>v>0).sort((a,b)=>b[1]-a[1]).slice(0,3).map(([k,v])=>`${k}(${v})`).join(', ');
+  const ps={};getPlayers().forEach(p=>{ps[p._id]={nombre:p.nombre,goles:0,asistencias:0,partidos:0,vals:[]};});
+  last5.forEach(m=>{(m.players||[]).forEach(mp=>{if(!ps[mp.id])return;if(mp.rol==='Titular'||mp.rol==='Suplente')ps[mp.id].partidos++;ps[mp.id].goles+=mp.goles||0;ps[mp.id].asistencias+=mp.asistencias||0;if(mp.valoracion)ps[mp.id].vals.push(mp.valoracion);});});
+  const dec=Object.values(ps).filter(p=>p.vals.length>=3).filter(p=>{const h=Math.floor(p.vals.length/2);return p.vals.slice(-h).reduce((s,v)=>s+v,0)/h<p.vals.slice(0,h).reduce((s,v)=>s+v,0)/h-0.5;}).map(p=>p.nombre).slice(0,2);
+  const raw=await callAI(`Eres analista de fútbol base. Basándote en los últimos ${last5.length} partidos del equipo ${TEAM_LABEL[currentTeam]}, genera EXACTAMENTE 3 sugerencias de objetivos. Devuelve SOLO JSON válido sin texto adicional:
 [{"titulo":"...","descripcion":"...","prioridad":"Alta|Media|Baja"},{"titulo":"...","descripcion":"...","prioridad":"..."},{"titulo":"...","descripcion":"...","prioridad":"..."}]
-
-Datos del equipo (${TEAM_LABEL[currentTeam]}, ${matches.length} partidos):
-- Balance: ${wins}V de ${matches.length} partidos
-- Goles encajados: ${totalGC} (media ${(totalGC/matches.length).toFixed(1)}/partido). Principales causas: ${topGc||'sin datos'}
-- Goles a favor: ${totalGF} (media ${(totalGF/matches.length).toFixed(1)}/partido)
-- Jugadores con rendimiento bajando: ${decliningPlayers.join(', ')||'ninguno detectado'}
-
-Las sugerencias deben ser concretas, accionables y apropiadas para fútbol base (alevín/benjamín). Sin texto extra, solo el JSON.`;
+Datos: ${wins}V/${last5.length}P | GF:${gf} GC:${gc} | Goles encajados: ${topGc||'sin datos'} | Jugadores bajando rendimiento: ${dec.join(', ')||'ninguno'}
+Sugerencias concretas y accionables para fútbol base.`);
   try{
-    const raw=await callClaude(prompt,'Eres un analista de fútbol base. Responde SOLO con JSON válido, sin texto adicional, sin explicaciones, sin bloques de código.');
     const clean=raw.replace(/```json|```/g,'').trim();
-    const suggestions=JSON.parse(clean);
-    el.innerHTML=`<div style="margin-bottom:.5rem"><div class="card-title" style="margin-bottom:.75rem"><i class="ti ti-sparkles" style="font-size:17px;color:#7c4dff"></i> Sugerencias IA para esta temporada</div>`+suggestions.map(s=>`
+    const sug=JSON.parse(clean);
+    el.innerHTML=`<div class="card"><div class="card-title" style="margin-bottom:.5rem"><i class="ti ti-sparkles" style="color:#7c4dff"></i> Sugerencias IA — últimos ${last5.length} partidos <button class="btn btn-sm" style="margin-left:auto;font-size:11px" onclick="suggestionsLoaded['${currentTeam}']=false;generateObjSuggestions()"><i class="ti ti-refresh" style="font-size:12px"></i></button></div>`+sug.map(s=>`
       <div class="suggestion-card">
-        <div class="suggestion-title"><span class="prio-tag prio-tag-${s.prioridad}" style="flex-shrink:0">${s.prioridad}</span>${s.titulo}</div>
+        <div style="display:flex;align-items:flex-start;gap:6px;margin-bottom:4px"><span class="prio-tag prio-tag-${s.prioridad}" style="flex-shrink:0">${s.prioridad}</span><span style="font-size:13px;font-weight:500;color:#2d2d5e">${s.titulo}</span></div>
         <div class="suggestion-body">${s.descripcion}</div>
         <button class="btn btn-sm" style="font-size:11px;background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;border:none" onclick="addSuggestionAsGoal('${s.titulo.replace(/'/g,"\\'")}','${s.prioridad}')"><i class="ti ti-plus" style="font-size:12px"></i> Añadir como objetivo</button>
       </div>`).join('')+'</div>';
-  }catch(e){
-    el.innerHTML='<button class="btn btn-ai btn-sm" onclick="generateObjSuggestions()"><i class="ti ti-sparkles" style="font-size:13px"></i> Generar sugerencias IA</button>';
-  }
+  }catch(e){el.innerHTML='<div style="font-size:12px;color:var(--text3);text-align:center">No se pudieron generar sugerencias. <button class="btn btn-sm" onclick="suggestionsLoaded[currentTeam]=false;generateObjSuggestions()">Reintentar</button></div>';suggestionsLoaded[currentTeam]=false;}
 }
 
 function renderObjetivos(){
@@ -1031,93 +879,50 @@ function renderObjetivos(){
     const order={Alta:0,Media:1,Baja:2};
     const pending=objetivos.filter(o=>!o.done).sort((a,b)=>order[a.prioridad]-order[b.prioridad]);
     const done=objetivos.filter(o=>o.done);
-    const renderObj=o=>`<div class="obj-item${o.done?' done':''}"><div class="obj-body"><div class="obj-title">${o.titulo}</div>${o.nota?`<div class="obj-note">${o.nota}</div>`:''}</div><div class="obj-actions"><span class="prio-tag prio-tag-${o.prioridad}">${o.prioridad}</span><div style="display:flex;gap:5px"><span class="icon-btn${o.done?' done-check':''}" onclick="toggleObjetivo('${o._id}',${o.done})"><i class="ti ti-check" style="font-size:13px"></i></span><span class="icon-btn" style="color:var(--red-text);border-color:var(--red-border)" onclick="deleteObjetivo('${o._id}')"><i class="ti ti-trash" style="font-size:13px"></i></span></div></div></div>`;
+    const rO=o=>`<div class="obj-item${o.done?' done':''}"><div class="obj-body"><div class="obj-title">${o.titulo}</div>${o.nota?`<div class="obj-note">${o.nota}</div>`:''}</div><div class="obj-actions"><span class="prio-tag prio-tag-${o.prioridad}">${o.prioridad}</span><div style="display:flex;gap:5px"><span class="icon-btn${o.done?' done-check':''}" onclick="toggleObjetivo('${o._id}',${o.done})"><i class="ti ti-check" style="font-size:13px"></i></span><span class="icon-btn" style="color:var(--red-text);border-color:var(--red-border)" onclick="deleteObjetivo('${o._id}')"><i class="ti ti-trash" style="font-size:13px"></i></span></div></div></div>`;
     let html='';
     const alta=pending.filter(o=>o.prioridad==='Alta'),media=pending.filter(o=>o.prioridad==='Media'),baja=pending.filter(o=>o.prioridad==='Baja');
-    if(alta.length) html+=`<div class="card" style="margin-bottom:.75rem"><div class="obj-sec-hdr"><span class="dot dot-a"></span>Prioridad alta</div>${alta.map(renderObj).join('')}</div>`;
-    if(media.length) html+=`<div class="card" style="margin-bottom:.75rem"><div class="obj-sec-hdr"><span class="dot dot-j"></span>Prioridad media</div>${media.map(renderObj).join('')}</div>`;
-    if(baja.length) html+=`<div class="card" style="margin-bottom:.75rem"><div class="obj-sec-hdr"><span class="dot dot-p"></span>Prioridad baja</div>${baja.map(renderObj).join('')}</div>`;
-    if(done.length) html+=`<div class="card"><div class="obj-sec-hdr"><i class="ti ti-circle-check" style="font-size:13px"></i>Conseguidos (${done.length})</div>${done.map(renderObj).join('')}</div>`;
+    if(alta.length)html+=`<div class="card" style="margin-bottom:.75rem"><div class="obj-sec-hdr"><span class="dot dot-a"></span>Prioridad alta</div>${alta.map(rO).join('')}</div>`;
+    if(media.length)html+=`<div class="card" style="margin-bottom:.75rem"><div class="obj-sec-hdr"><span class="dot dot-j"></span>Prioridad media</div>${media.map(rO).join('')}</div>`;
+    if(baja.length)html+=`<div class="card" style="margin-bottom:.75rem"><div class="obj-sec-hdr"><span class="dot dot-p"></span>Prioridad baja</div>${baja.map(rO).join('')}</div>`;
+    if(done.length)html+=`<div class="card"><div class="obj-sec-hdr"><i class="ti ti-circle-check" style="font-size:13px"></i>Conseguidos (${done.length})</div>${done.map(rO).join('')}</div>`;
     el.innerHTML=html;
-  }
-  const sugEl=document.getElementById('obj-ai-suggestions');
-  const matches=getMatches();
-  if(matches.length>=3){
-    if(!sugEl.innerHTML||sugEl.innerHTML.includes('Necesitas')){
-      sugEl.innerHTML=`<button class="btn btn-ai" style="width:100%;justify-content:center" onclick="generateObjSuggestions()"><i class="ti ti-sparkles" style="font-size:14px"></i> Generar sugerencias IA para esta temporada</button>`;
-    }
-  } else {
-    sugEl.innerHTML='<div style="font-size:12px;color:var(--text3);text-align:center;padding:.5rem 0">Las sugerencias IA estarán disponibles cuando tengas al menos 3 partidos.</div>';
   }
 }
 
-// CHAT IA
-function buildDataContext(){
-  const players=getPlayers(),matches=getMatches(),att=getAttendance();
-  const stats={};
-  players.forEach(p=>{stats[p._id]={nombre:p.nombre,pos:p.pos,goles:0,asistencias:0,partidos:0,minutos:0,titularidades:0,desconvocados:0,vals:[]};});
-  const gcTotal={};ALL_CATS.forEach(c=>{gcTotal[c]=0;});
-  let totalGF=0,totalGC=0,wins=0,draws=0,losses=0;
-  matches.forEach(m=>{
-    totalGF+=m.gf;totalGC+=m.gc;
-    if(m.gf>m.gc)wins++;else if(m.gf===m.gc)draws++;else losses++;
-    if(m.gcDesglose)Object.entries(m.gcDesglose).forEach(([k,v])=>{if(gcTotal[k]!==undefined)gcTotal[k]+=v;});
-    (m.players||[]).forEach(mp=>{
-      if(!stats[mp.id]) return;
-      if(mp.rol==='Titular'||mp.rol==='Suplente'){stats[mp.id].partidos++;stats[mp.id].minutos+=mp.minutos||0;if(mp.rol==='Titular')stats[mp.id].titularidades++;}
-      if(DESCONVOCADO_ROLES.includes(mp.rol)) stats[mp.id].desconvocados++;
-      stats[mp.id].goles+=mp.goles||0;stats[mp.id].asistencias+=mp.asistencias||0;
-      if(mp.valoracion)stats[mp.id].vals.push(mp.valoracion);
-    });
-  });
-  const activeWeeks=Object.entries(att).filter(([,data])=>Object.values(data).some(d=>Object.values(d).includes('p')));
-  const attStats={};
-  players.forEach(p=>{attStats[p._id]={present:0,total:0};});
-  activeWeeks.forEach(([,data])=>{players.forEach(p=>{const d=data[p._id];if(d){attStats[p._id].total+=3;attStats[p._id].present+=Object.values(d).filter(v=>v==='p'||v==='j').length;}});});
-  const playerSummary=Object.values(stats).map(p=>{
-    const avg=p.vals.length?(p.vals.reduce((s,v)=>s+v,0)/p.vals.length).toFixed(1):'-';
-    const last5=p.vals.slice(-5);const trend=last5.length>=3?(last5[last5.length-1]>last5[0]?'↑':'↓'):'–';
-    const att2=attStats[p._id];const attPct=att2&&att2.total?Math.round(att2.present/att2.total*100)+'%':'–';
-    return `${p.nombre}(${p.pos}): ${p.partidos}P ${p.titularidades}T ${p.goles}G ${p.asistencias}A ${p.minutos}min val${avg}${trend} asist${attPct}`;
-  }).join('\n');
-  const topGc=Object.entries(gcTotal).filter(([,v])=>v>0).sort((a,b)=>b[1]-a[1]).slice(0,5).map(([k,v])=>`${k}:${v}`).join(', ');
-  return `Equipo: ${TEAM_LABEL[currentTeam]}
-Partidos: ${matches.length} | Balance: ${wins}V ${draws}E ${losses}D
-Goles: ${totalGF} a favor, ${totalGC} en contra
-Goles encajados por tipo: ${topGc||'sin datos'}
-Jugadores:\n${playerSummary}`;
+// CHAT
+function buildCtx(){
+  const players=getPlayers(),matches=getMatches(),att=getAttendance(),notes=getMatchNotes();
+  const stats={};players.forEach(p=>{stats[p._id]={nombre:p.nombre,pos:p.pos,goles:0,asistencias:0,partidos:0,minutos:0,titularidades:0,desconvocados:0,vals:[]};});
+  const gcT={};ALL_CATS.forEach(c=>{gcT[c]=0;});
+  let tGF=0,tGC=0,wins=0,draws=0,losses=0;
+  matches.forEach(m=>{tGF+=m.gf;tGC+=m.gc;if(m.gf>m.gc)wins++;else if(m.gf===m.gc)draws++;else losses++;if(m.gcDesglose)Object.entries(m.gcDesglose).forEach(([k,v])=>{if(gcT[k]!==undefined)gcT[k]+=v;});(m.players||[]).forEach(mp=>{if(!stats[mp.id])return;if(mp.rol==='Titular'||mp.rol==='Suplente'){stats[mp.id].partidos++;stats[mp.id].minutos+=mp.minutos||0;if(mp.rol==='Titular')stats[mp.id].titularidades++;}if(DESCONVOCADO_ROLES.includes(mp.rol))stats[mp.id].desconvocados++;stats[mp.id].goles+=mp.goles||0;stats[mp.id].asistencias+=mp.asistencias||0;if(mp.valoracion)stats[mp.id].vals.push(mp.valoracion);});});
+  const aw=Object.entries(att).filter(([,d])=>Object.values(d).some(x=>Object.values(x).includes('p')));
+  const as2={};players.forEach(p=>{as2[p._id]={present:0,total:0};});
+  aw.forEach(([,d])=>{players.forEach(p=>{const x=d[p._id];if(x){as2[p._id].total+=3;as2[p._id].present+=Object.values(x).filter(v=>v==='p'||v==='j').length;}});});
+  const pSum=Object.values(stats).map(p=>{const av=p.vals.length?(p.vals.reduce((s,v)=>s+v,0)/p.vals.length).toFixed(1):'-';const l5=p.vals.slice(-5);const tr=l5.length>=3?(l5[l5.length-1]>l5[0]?'↑':'↓'):'–';const a2=as2[p._id];const ap=a2&&a2.total?Math.round(a2.present/a2.total*100)+'%':'–';return `${p.nombre}(${p.pos}): ${p.partidos}P ${p.titularidades}T ${p.goles}G ${p.asistencias}A ${p.minutos}min val${av}${tr} asist${ap}`;}).join('\n');
+  const topGc=Object.entries(gcT).filter(([,v])=>v>0).sort((a,b)=>b[1]-a[1]).slice(0,5).map(([k,v])=>`${k}:${v}`).join(', ');
+  const rN=Object.entries(notes).map(([id,n])=>{const m=matches.find(x=>x._id===id);if(!m)return'';const p=[];if(n.cronica)p.push(`Crónica vs ${m.rival}(${m.fecha}): ${n.cronica.slice(0,150)}`);if(n.rivalInfo)p.push(`Info rival ${m.rival}: ${n.rivalInfo.slice(0,150)}`);return p.join(' | ');}).filter(Boolean).join('\n');
+  return `Equipo: ${TEAM_LABEL[currentTeam]}\nPartidos: ${matches.length} | ${wins}V ${draws}E ${losses}D\nGoles: ${tGF}F ${tGC}C\nGoles encajados: ${topGc||'sin datos'}\nJugadores:\n${pSum}${rN?'\nNotas partidos:\n'+rN:''}`;
 }
 
 function renderChat(){
-  const chatWrap=document.getElementById('chat-wrap');
-  const sugWrap=document.getElementById('chat-suggestions');
-  sugWrap.innerHTML=CHAT_SUGGESTIONS.map(s=>`<span class="chat-sug" onclick="useSuggestion('${s.replace(/'/g,"\\'")}')">${s}</span>`).join('');
-  if(chatHistory.length===0){chatWrap.innerHTML='<div class="empty" style="padding:1rem"><i class="ti ti-message-chatbot" style="font-size:24px;display:block;margin-bottom:8px;opacity:.3"></i>Pregunta lo que quieras sobre tu equipo</div>';}
+  const sw=document.getElementById('chat-suggestions');if(sw)sw.innerHTML=CHAT_SUGS.map(s=>`<span class="chat-sug" onclick="useSug('${s.replace(/'/g,"\\'")}')">${s}</span>`).join('');
+  const cw=document.getElementById('chat-wrap');if(chatHistory.length===0&&cw)cw.innerHTML='<div class="empty" style="padding:1rem"><i class="ti ti-message-chatbot" style="font-size:24px;display:block;margin-bottom:8px;opacity:.3"></i>Pregunta lo que quieras sobre tu equipo</div>';
 }
-window.useSuggestion=function(text){document.getElementById('chat-input').value=text;sendChat();};
+window.useSug=function(t){document.getElementById('chat-input').value=t;sendChat();};
 window.sendChat=async function(){
-  const input=document.getElementById('chat-input');
-  const text=input.value.trim();if(!text) return;
-  input.value='';
+  const input=document.getElementById('chat-input');const text=input.value.trim();if(!text)return;input.value='';
   chatHistory.push({role:'user',content:text});
-  const chatWrap=document.getElementById('chat-wrap');
-  chatWrap.innerHTML=chatHistory.map(m=>`<div class="chat-msg ${m.role}">${m.content}</div>`).join('')+'<div class="chat-msg ai" id="chat-typing"><div class="ai-loading" style="padding:0"><div class="ai-dot"></div><div class="ai-dot"></div><div class="ai-dot"></div></div></div>';
-  chatWrap.scrollTop=chatWrap.scrollHeight;
-  const dataCtx=buildDataContext();
-  const systemPrompt=`Eres el asistente de entrenador para el equipo ${TEAM_LABEL[currentTeam]}. Tienes acceso a todos los datos de la temporada. Responde siempre en español, de forma concisa y directa (máximo 4-5 frases). Usa los datos para dar respuestas concretas con nombres y números reales. No inventes datos que no estén en el contexto.`;
-  const messages=chatHistory.map(m=>({role:m.role,content:m.content}));
-  messages[messages.length-1].content=`Datos de la temporada:\n${dataCtx}\n\nPregunta: ${text}`;
-  try{
-    const resp=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:600,system:systemPrompt,messages})});
-    const data=await resp.json();
-    const reply=data.content?.[0]?.text||'No pude generar una respuesta.';
-    chatHistory.push({role:'assistant',content:reply});
-    chatWrap.innerHTML=chatHistory.map(m=>`<div class="chat-msg ${m.role}">${m.content}</div>`).join('');
-    chatWrap.scrollTop=chatWrap.scrollHeight;
-  }catch(e){
-    chatHistory.push({role:'assistant',content:'Error al conectar con la IA. Comprueba tu conexión.'});
-    chatWrap.innerHTML=chatHistory.map(m=>`<div class="chat-msg ${m.role}">${m.content}</div>`).join('');
-  }
+  const cw=document.getElementById('chat-wrap');
+  cw.innerHTML=chatHistory.map(m=>`<div class="chat-msg ${m.role}">${m.content}</div>`).join('')+'<div class="chat-msg ai"><div class="ai-loading" style="padding:0"><div class="ai-dot"></div><div class="ai-dot"></div><div class="ai-dot"></div></div></div>';
+  cw.scrollTop=cw.scrollHeight;
+  const ctx=buildCtx();
+  const prompt=`Eres el asistente del entrenador del equipo ${TEAM_LABEL[currentTeam]} (fútbol base). Responde en español, conciso y directo (máximo 5 frases). Usa datos reales. No inventes.\n\nDatos temporada:\n${ctx}\n\nConversación previa:\n${chatHistory.slice(-4,-1).map(m=>m.role+': '+m.content).join('\n')}\n\nPregunta: ${text}`;
+  const reply=await callAI(prompt);
+  chatHistory.push({role:'assistant',content:reply});
+  cw.innerHTML=chatHistory.map(m=>`<div class="chat-msg ${m.role}">${m.content}</div>`).join('');
+  cw.scrollTop=cw.scrollHeight;
 };
 
 initApp();
